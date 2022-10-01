@@ -1,0 +1,1 @@
+Webroot for CE 4363 Groundwater Hydrology. The webroot is intended to be installed on a web server hosted as a 1-st generation daughter directory within the hosting web server directory structure.  Internal links are "hard coded" to the server's IP address and will need manual editing (probably can use sed to automate any changes) as the structure is moved from server to server.
