@@ -467,6 +467,80 @@ The flow direction in the figure will be declared  the <span class="math notrans
 \[
 \frac{d M_{water}}{dt} = M_{Inflow} - M_{Outlfow}
 \]</div>
+<p>The left side of the expression is simply the storage term, and in the context of storage coefficients and aquifer head is replaced by</p>
+<div class="math notranslate nohighlight">
+\[
+{\frac{d M_{water}}{dt}\mid}_{cell} =\rho_{w} S_{s} \Delta x \Delta y \Delta z \frac{\partial h_i}{\partial t}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(h_i\)</span> is the head in the <span class="math notranslate nohighlight">\(i-\)</span>th cell.</p>
+<p>The right hand side of the expression is based on writing Darcy’s law for the cell, and using values in adjacent (hydraulically connected) cells.</p>
+<p><a class="reference internal" href="#multiple-computational-cell"><span class="std std-numref">Fig. 5</span></a> is a diagram of three such connected blocks.</p>
+<div class="figure align-default" id="multiple-computational-cell">
+<a class="reference internal image-reference" href="../../_images/multiple-computational-cell.png"><img alt="../../_images/multiple-computational-cell.png" src="../../_images/multiple-computational-cell.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Multiple computational cell definition sketch</span><a class="headerlink" href="#multiple-computational-cell" title="Permalink to this image">¶</a></p>
+</div>
+<p>The <span class="math notranslate nohighlight">\(i-\)</span>th cell is the cell of interest, the cell to the left is cell ID <span class="math notranslate nohighlight">\(i-1\)</span>, and the cell to the right is cell ID <span class="math notranslate nohighlight">\(i+1\)</span>.</p>
+<p>We now write Darcy’s law for each face of cell <span class="math notranslate nohighlight">\(i\)</span>, treating the head in each of the cell centers as if they were the sampling wells of <a class="reference internal" href="#d-aquifer-flow"><span class="std std-numref">Fig. 3</span></a> (In the context of <a class="reference internal" href="#d-aquifer-flow"><span class="std std-numref">Fig. 3</span></a>, the cell face is halfway between the two wells; the cell centers are at the wells.)</p>
+<p>Darcy’s law for the left face is</p>
+<div class="math notranslate nohighlight">
+\[
+M_{Inflow} = Q_{left} =\rho_{w} K \Delta y \Delta z \frac{h_{i-1} - h_{i}}{\Delta x}
+\]</div>
+<p>Similarly for the right face,</p>
+<div class="math notranslate nohighlight">
+\[
+M_{Outflow} = Q_{right} =\rho_{w} K \Delta y \Delta z \frac{h_{i} - h_{i+1}}{\Delta x}
+\]</div>
+<p>Now combine these together in the mass balance</p>
+<div class="math notranslate nohighlight">
+\[
+\rho_{w} S_{s} \Delta x \Delta y \Delta z \frac{\partial h_i}{\partial t} = 
+(\rho_{w} K \Delta y \Delta z \frac{h_{i-1} - h_{i}}{\Delta x}) - 
+(\rho_{w} K \Delta y \Delta z \frac{h_{i} - h_{i+1}}{\Delta x})
+\]</div>
+<p>Next divide by the water density <span class="math notranslate nohighlight">\(\rho_{w}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+S_{s} \Delta x \Delta y \Delta z \frac{\partial h_i}{\partial t} = 
+(K \Delta y \Delta z \frac{h_{i-1} - h_{i}}{\Delta x}) - 
+(K \Delta y \Delta z \frac{h_{i} - h_{i+1}}{\Delta x})
+\]</div>
+<p>Then divide by cell width <span class="math notranslate nohighlight">\(\Delta y \)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+S_{s} \Delta x \Delta z \frac{\partial h_i}{\partial t} = 
+(K  \Delta z \frac{h_{i-1} - h_{i}}{\Delta x}) - 
+(K  \Delta z \frac{h_{i} - h_{i+1}}{\Delta x})
+\]</div>
+<p>Rewrite the right hand side into gradient of head form</p>
+<div class="math notranslate nohighlight">
+\[
+S_{s} \Delta x \Delta z \frac{\partial h_i}{\partial t} = 
+(K \Delta z \frac{h_{i+1} - h_{i}}{\Delta x}) - 
+(K \Delta z \frac{h_{i} - h_{i-1}}{\Delta x})
+= 
+{K \Delta z \frac{\partial h}{\partial x}}\mid_{i~\rightarrow i+1} -
+{K \Delta z \frac{\partial h}{\partial x}}\mid_{i-1~\rightarrow i}
+\]</div>
+<p>Divide by cell distance, <span class="math notranslate nohighlight">\(\Delta x\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+S_{s}  \Delta z \frac{\partial h_i}{\partial t} = 
+\frac{{K \Delta z \frac{\partial h}{\partial x}}\mid_{i~\rightarrow i+1} -
+{K \Delta z\frac{\partial h}{\partial x}}\mid_{i-1~\rightarrow i}}{\Delta x}
+\]</div>
+<p>Take limit as <span class="math notranslate nohighlight">\(\Delta x~\rightarrow0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+S_{s} \Delta z  \frac{\partial h}{\partial t} = 
+\frac{\partial}{\partial x}({K \Delta z \frac{\partial h}{\partial x}})
+\]</div>
+<p>Finally, stipulate that <span class="math notranslate nohighlight">\(S_{s} \Delta z = S\)</span>, the storage coefficient (for confined aquifer), and define the aquifer transmissivity as <span class="math notranslate nohighlight">\(K \Delta z = T\)</span> and we have performed a nicely back-handed way to get the partial differential equation of aquifer flow.</p>
+<div class="math notranslate nohighlight">
+\[
+S \frac{\partial h}{\partial t} = 
+\frac{\partial}{\partial x}({T \frac{\partial h}{\partial x}})
+\]</div>
 </div>
 <div class="section" id="solution-methods">
 <h2>Solution Methods<a class="headerlink" href="#solution-methods" title="Permalink to this headline">¶</a></h2>
