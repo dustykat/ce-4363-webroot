@@ -158,7 +158,7 @@
 # $$
 # S_{s} \Delta x \Delta y \Delta z \frac{\partial h_i}{\partial t} = 
 # (K \Delta y \Delta z \frac{h_{i-1} - h_{i}}{\Delta x}) - 
-# (K \Delta y \Delta z \frac{h_{i} - h_{i+1}}{\Delta x})
+# (K \Delta y \Delta z \frac{h_{i} - h_{i+1}}{\Delta x})  
 # $$
 # 
 # Then divide by cell width $\Delta y $,
@@ -202,11 +202,79 @@
 # \frac{\partial}{\partial x}({T \frac{\partial h}{\partial x}})
 # $$
 # 
-# 
 # ## Solution Methods
 # 
-# ## Homebrew
+# Ironically, the analysis actually provides an algorithm to approximate head in the aquifer 
 # 
+# ### Finite-Difference Methods -- 1 Spatial Dimension
+# Here we will use the equation obtained after dividing by the water density as a starting point for simulating aquifer behavior.   
+# 
+# As a first model, lets consider the steady flow situation, in which case the left hand side vanishes (there is no change in storage).
+# 
+# $$
+# 0 = 
+# (K \Delta y \Delta z \frac{h_{i-1} - h_{i}}{\Delta x}) - 
+# (K \Delta y \Delta z \frac{h_{i} - h_{i+1}}{\Delta x})
+# $$
+# 
+# Next we will use the arithmetic mean values of the material properties ($K$) at the cell interfaces, so the difference equation becomes
+# 
+# :::{note}
+# Other spatial averaging formulas are employed, but the arithmetic mean is quite common
+# :::
+# 
+# $$
+# 0 = 
+# (\frac{1}{2}(K_{i-1}+K_{i}) \Delta y \Delta z \frac{h_{i-1} - h_{i}}{\Delta x}) - 
+# (\frac{1}{2}(K_{i}+K_{i-1}) \Delta y \Delta z \frac{h_{i} - h_{i+1}}{\Delta x})
+# $$
+# 
+# Now lets group some constants:
+# 
+# $$
+# \begin{matrix}
+# A_{i} = \frac{1}{2 \Delta x}(K_{i-1}+K_{i}) \Delta y \Delta z \\
+# B_{i} = \frac{1}{2 \Delta x}(K_{i}+K_{i+1}) \Delta y \Delta z
+# \end{matrix}
+# $$
+# 
+# Now substitute into the difference equation
+# 
+# $$
+# 0 = A_{i}(h_{i-1}) -(A_{i}+B_{i})(h_{i}) + B_{i}(h_{i+1})
+# $$
+# 
+# Now all that remains is to specify boundary conditions, and then implement an algorithm to solve the resulting system of algebraic equations.
+# 
+# :::{note}
+# I have assumed that the spatial step, $\Delta x$ is the same for each cell -- it doesn't have to be, but relaxing that assumption complicates the specifications of the constants $A$ and $B$.
+# :::
+# 
+# Some of the plausible boundary conditions are:
+# 1. Specified head boundary (pretty easy to specify in a computer representation).
+# 2. Zero-flux boundary (also easy to specify using the cell-centered formulation herein).
+# 3. Specified flux boundary (using a modeling trick not too hard to specify).
+# 
+# These three types of conditions should handle the majority of practical situations where one would need to model an aquifer system.
+# 
+# Lets examine the difference equation a little bit -- assume we have the correct values then
+# 
+# $$
+# h_{i} = \frac{A_{i}(h_{i-1}) + B_{i}(h_{i+1})}{(A_{i}+B_{i})}
+# $$
+# 
+# which suggests a nice algorithm. 
+# 
+# We will simply apply boundary conditions, then evaluate the expression for each cell, and after we compute the expression for all the cells, we will repeat the process until the solution stops changing.  
+# 
+# Computationally, we are employing a Jacobi iteration scheme, which will work nicely for this particular problem structure.  
+# An alternative, equally valid, would be to construct the linear system of equations (in this case it will be a three-banded matrix), and apply an appropriate row reduction technique to find the solution. 
+# 
+# ### Homebrew - Example 1
+# 
+# ### Homebrew - Example 2
+# 
+# ### Finite-Difference Methods -- 2 Spatial Dimensions
 
 # In[ ]:
 
