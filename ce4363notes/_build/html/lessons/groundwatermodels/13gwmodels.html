@@ -361,8 +361,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#theory">
-   Theory
+  <a class="reference internal nav-link" href="#confined-aquifer-flow-modeling-theory">
+   Confined Aquifer Flow Modeling Theory
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -434,9 +434,25 @@ h_L = \frac{QL}{KA}
 <a class="reference internal image-reference" href="../../_images/1D-aquifer-flow.png"><img alt="../../_images/1D-aquifer-flow.png" src="../../_images/1D-aquifer-flow.png" style="width: 400px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Schematic diagram of unidirectional flow in a generic aquifer, showing heads in two measuring wells located distance <span class="math notranslate nohighlight">\(L\)</span> apart</span><a class="headerlink" href="#d-aquifer-flow" title="Permalink to this image">¶</a></p>
 </div>
+<ul class="simple">
+<li><p>The cross-sectional flow area, <span class="math notranslate nohighlight">\(A\)</span>, is the product of height of the aquifer block and its width (in this case the width is into the plane of the paper).</p></li>
+<li><p>The distance between two measurement points is <span class="math notranslate nohighlight">\(L\)</span>. The head at the two points is <span class="math notranslate nohighlight">\(h_1\)</span> and <span class="math notranslate nohighlight">\(h_2\)</span>.</p></li>
+<li><p>The gradient of head, <span class="math notranslate nohighlight">\(\frac{\partial h}{\partial x}\)</span>, is <span class="math notranslate nohighlight">\(\frac{h_2 - h_1}{L}\)</span>.</p></li>
+<li><p>The hydraulic gradient is  <span class="math notranslate nohighlight">\(- \frac{\partial h}{\partial x}\)</span>, is <span class="math notranslate nohighlight">\(\frac{h_1 - h_2}{L}\)</span>.</p></li>
+</ul>
+<p>Finally Darcy’s law (for the drawing) is <span class="math notranslate nohighlight">\(Q = K A \frac{h_1 - h_2}{L}\)</span>.</p>
 </div>
-<div class="section" id="theory">
-<h2>Theory<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="confined-aquifer-flow-modeling-theory">
+<h2>Confined Aquifer Flow Modeling Theory<a class="headerlink" href="#confined-aquifer-flow-modeling-theory" title="Permalink to this headline">¶</a></h2>
+<p>Using Figure <a class="reference internal" href="#d-aquifer-flow"><span class="std std-numref">Fig. 3</span></a> as a starting point, one can develop a computational model of flow in a confined aquifer.
+Let’s decide that the distance <span class="math notranslate nohighlight">\(L\)</span> in the figure is going to be divided into a series of connected, small blocks.
+The flow direction in the figure will be declared  the <span class="math notranslate nohighlight">\(x\)</span> direction, the depth into the drawing is declared the <span class="math notranslate nohighlight">\(y\)</span> direction, and the height of the block is declared the <span class="math notranslate nohighlight">\(z\)</span> direction.</p>
+<p><a class="reference internal" href="#single-computational-cell"><span class="std std-numref">Fig. 4</span></a> is a diagram of one such small block.</p>
+<div class="figure align-default" id="single-computational-cell">
+<a class="reference internal image-reference" href="../../_images/single-computational-cell.png"><img alt="../../_images/single-computational-cell.png" src="../../_images/single-computational-cell.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Single computational cell definition sketch</span><a class="headerlink" href="#single-computational-cell" title="Permalink to this image">¶</a></p>
+</div>
+<p>Using this diagram we can now develop a set of expressions for the cell volume, solids volume in the cell,  pore volume in the cell (where water actually can flow), and solids mass.</p>
 </div>
 <div class="section" id="solution-methods">
 <h2>Solution Methods<a class="headerlink" href="#solution-methods" title="Permalink to this headline">¶</a></h2>

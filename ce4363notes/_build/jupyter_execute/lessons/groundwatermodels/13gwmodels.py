@@ -70,7 +70,32 @@
 # ---
 # Schematic diagram of unidirectional flow in a generic aquifer, showing heads in two measuring wells located distance $L$ apart
 # ```
-# ## Theory
+# - The cross-sectional flow area, $A$, is the product of height of the aquifer block and its width (in this case the width is into the plane of the paper). 
+# - The distance between two measurement points is $L$. The head at the two points is $h_1$ and $h_2$.
+# - The gradient of head, $\frac{\partial h}{\partial x}$, is $\frac{h_2 - h_1}{L}$.
+# - The hydraulic gradient is  $- \frac{\partial h}{\partial x}$, is $\frac{h_1 - h_2}{L}$.
+# 
+# Finally Darcy's law (for the drawing) is $Q = K A \frac{h_1 - h_2}{L}$.
+# 
+# 
+# ## Confined Aquifer Flow Modeling Theory 
+# 
+# Using Figure {numref}`1D-aquifer-flow` as a starting point, one can develop a computational model of flow in a confined aquifer.
+# Let's decide that the distance $L$ in the figure is going to be divided into a series of connected, small blocks.
+# The flow direction in the figure will be declared  the $x$ direction, the depth into the drawing is declared the $y$ direction, and the height of the block is declared the $z$ direction.
+# 
+# {numref}`single-computational-cell` is a diagram of one such small block.
+# 
+# ```{figure} single-computational-cell.png
+# ---
+# width: 400px
+# name: single-computational-cell
+# ---
+# Single computational cell definition sketch
+# ```
+# 
+# Using this diagram we can now develop a set of expressions for the cell volume, solids volume in the cell,  pore volume in the cell (where water actually can flow), and solids mass.
+# 
 # ## Solution Methods
 # 
 # ## Homebrew
