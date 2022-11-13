@@ -96,6 +96,19 @@
 # 
 # Using this diagram we can now develop a set of expressions for the cell volume, solids volume in the cell,  pore volume in the cell (where water actually can flow), and solids mass.
 # 
+# First some definitional expressions for each cell:
+# 
+# > - Cell Volume: $V_{cell} = \Delta x \times \Delta y \times \Delta z$
+# > - Solids Volume: $V_{solid} =(1-\omega) \Delta x \times \Delta y \times \Delta z$
+# > - Void (Pore) Volume: $V_{pore} = \omega \Delta x \times \Delta y \times \Delta z$
+# > - Solids Mass: $M_{solid} = \rho_{s} (1-\omega) \Delta x \times \Delta y \times \Delta z$
+# 
+# Next write a mass balance for water in the cell;
+# 
+# $$
+# \frac{d M_{water}}{dt} = M_{Inflow} - M_{Outlfow}
+# $$
+# 
 # ## Solution Methods
 # 
 # ## Homebrew

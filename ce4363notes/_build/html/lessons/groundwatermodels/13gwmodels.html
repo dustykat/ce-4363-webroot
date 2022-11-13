@@ -453,6 +453,20 @@ The flow direction in the figure will be declared  the <span class="math notrans
 <p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Single computational cell definition sketch</span><a class="headerlink" href="#single-computational-cell" title="Permalink to this image">¶</a></p>
 </div>
 <p>Using this diagram we can now develop a set of expressions for the cell volume, solids volume in the cell,  pore volume in the cell (where water actually can flow), and solids mass.</p>
+<p>First some definitional expressions for each cell:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Cell Volume: <span class="math notranslate nohighlight">\(V_{cell} = \Delta x \times \Delta y \times \Delta z\)</span></p></li>
+<li><p>Solids Volume: <span class="math notranslate nohighlight">\(V_{solid} =(1-\omega) \Delta x \times \Delta y \times \Delta z\)</span></p></li>
+<li><p>Void (Pore) Volume: <span class="math notranslate nohighlight">\(V_{pore} = \omega \Delta x \times \Delta y \times \Delta z\)</span></p></li>
+<li><p>Solids Mass: <span class="math notranslate nohighlight">\(M_{solid} = \rho_{s} (1-\omega) \Delta x \times \Delta y \times \Delta z\)</span></p></li>
+</ul>
+</div></blockquote>
+<p>Next write a mass balance for water in the cell;</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d M_{water}}{dt} = M_{Inflow} - M_{Outlfow}
+\]</div>
 </div>
 <div class="section" id="solution-methods">
 <h2>Solution Methods<a class="headerlink" href="#solution-methods" title="Permalink to this headline">¶</a></h2>
