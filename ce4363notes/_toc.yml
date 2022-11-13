@@ -19,9 +19,9 @@ chapters:
 - file: lessons/10gwflow2wells
 - file: lessons/11gwflow2wells
 - file: lessons/12gwflow2wells
-- file: lessons/13gwmodels
-- file: lessons/14gwmodels
-- file: lessons/15gwmodels
+- file: lessons/groundwatermodels/13gwmodels
+- file: lessons/groundwatermodels/14gwmodels
+- file: lessons/groundwatermodels/15gwmodels
 - file: lessons/16recharge
 - file: lessons/17fieldmethods
 - file: lessons/18waterwellconstruction
