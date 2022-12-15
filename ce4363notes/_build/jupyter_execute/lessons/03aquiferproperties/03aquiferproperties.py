@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Aquifer Properties
+# # Aquifer Properties - I
 
 # ## Density and Specific Weight
 # 
@@ -367,18 +367,54 @@
 # 
 # These computations can be conviently entered into a spreadsheet program. [MODEL2_CHPerm.xls](http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/03aquiferproperties/MODEL2_CHPerm.xls) is a spreadsheet program that implements these equations for a constant head permeameter.
 # 
+# 
 # ```{figure} CHPspreadsheet.png
 # ---
 # width: 600px
 # name: CHPspreadsheet
 # ---
-# Constant head permeameter analysis spreadsheet (circa 1994)
+# Constant head permeameter analysis spreadsheet
 # ```
 # 
 # {numref}`CHPspreadsheet` is an annotated image of the spreadsheet showing where to enter data to estimate hydraulic conductivity.
 # To use the program the data is entered for a particular analysis. If intrinsic permeability is to be calculated then the density and viscosity of water should be determined from a tabulation and entered into the spreadsheet.
 
 # ### Falling Head Permeameter
+# 
+# The falling head permeameter is used when the hydraulic conductivity of the porous material is small. In this case the constant head permeameter cannot easily generate a high enough gradient to produce measurable flow in a reasonable amount of time.
+# 
+# ```{figure} FHPermeameter.png
+# ---
+# width: 600px
+# name: FHPermeameter
+# ---
+# Falling head permeameter schematic 
+# ```
+# 
+# {numref}`FHPermeameter`is a schematic diagram of a falling head permeameter. A sample of porous medium is placed the device. The length of the sample is L, the cross sectional area of the sample is A. A smaller area tube rises above the sample. This tube provides the driving force required to move water through the porous sample with reasonably small water volume. The area of this tube is a. The head is measured at the inlet of the sample as the height of water in the tube above the sample, h(t). Q(t) is the varying rate of flow through the sample.
+# 
+# :::{note}
+# In a falling head permeameter, both the head and the flow rate vary with time.
+# :::
+# 
+# The analysis is a bit more complicated
+# 
+# ![](FHanalysis1.png)
+# 
+# ![](FHanalysis2.png)
+# 
+# [MODEL3_FHPerm.xls](http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/03aquiferproperties/MODEL3_FHPerm.xls) is a spreadsheet program that implements the falling head equations.
+# 
+# ```{figure} FHPspreadsheet.png
+# ---
+# width: 600px
+# name: FHPspreadsheet
+# ---
+# Falling head permeameter analysis spreadsheet
+# ```
+# 
+# {numref}`FHPspreadsheet` is an annotated image of the spreadsheet showing where to enter data to estimate hydraulic conductivity.
+# To use the program the data is entered for a particular analysis. If intrinsic permeability is to be calculated then the density and viscosity of water should be determined from a tabulation and entered into the spreadsheet.
 
 # 
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aquifer Properties &#8212; CE 4363/5363 Groundwater Hydrology</title>
+    <title>Aquifer Properties - I &#8212; CE 4363/5363 Groundwater Hydrology</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -123,7 +123,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Aquifer Properties
+   Aquifer Properties - I
   </a>
  </li>
  <li class="toctree-l1">
@@ -522,8 +522,8 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="aquifer-properties">
-<h1>Aquifer Properties<a class="headerlink" href="#aquifer-properties" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="aquifer-properties-i">
+<h1>Aquifer Properties - I<a class="headerlink" href="#aquifer-properties-i" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="density-and-specific-weight">
 <h2>Density and Specific Weight<a class="headerlink" href="#density-and-specific-weight" title="Permalink to this headline">¶</a></h2>
 <p>Usual definition:</p>
@@ -813,13 +813,33 @@ Same Hazen as in Hazen-Williams head loss equation.</p>
 <p>These computations can be conviently entered into a spreadsheet program. <a class="reference external" href="http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/03aquiferproperties/MODEL2_CHPerm.xls">MODEL2_CHPerm.xls</a> is a spreadsheet program that implements these equations for a constant head permeameter.</p>
 <div class="figure align-default" id="chpspreadsheet">
 <a class="reference internal image-reference" href="../../_images/CHPspreadsheet.png"><img alt="../../_images/CHPspreadsheet.png" src="../../_images/CHPspreadsheet.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Constant head permeameter analysis spreadsheet (circa 1994)</span><a class="headerlink" href="#chpspreadsheet" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Constant head permeameter analysis spreadsheet</span><a class="headerlink" href="#chpspreadsheet" title="Permalink to this image">¶</a></p>
 </div>
 <p><a class="reference internal" href="#chpspreadsheet"><span class="std std-numref">Fig. 11</span></a> is an annotated image of the spreadsheet showing where to enter data to estimate hydraulic conductivity.
 To use the program the data is entered for a particular analysis. If intrinsic permeability is to be calculated then the density and viscosity of water should be determined from a tabulation and entered into the spreadsheet.</p>
 </div>
 <div class="section" id="falling-head-permeameter">
 <h3>Falling Head Permeameter<a class="headerlink" href="#falling-head-permeameter" title="Permalink to this headline">¶</a></h3>
+<p>The falling head permeameter is used when the hydraulic conductivity of the porous material is small. In this case the constant head permeameter cannot easily generate a high enough gradient to produce measurable flow in a reasonable amount of time.</p>
+<div class="figure align-default" id="fhpermeameter">
+<a class="reference internal image-reference" href="../../_images/FHPermeameter.png"><img alt="../../_images/FHPermeameter.png" src="../../_images/FHPermeameter.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Falling head permeameter schematic</span><a class="headerlink" href="#fhpermeameter" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fhpermeameter"><span class="std std-numref">Fig. 12</span></a>is a schematic diagram of a falling head permeameter. A sample of porous medium is placed the device. The length of the sample is L, the cross sectional area of the sample is A. A smaller area tube rises above the sample. This tube provides the driving force required to move water through the porous sample with reasonably small water volume. The area of this tube is a. The head is measured at the inlet of the sample as the height of water in the tube above the sample, h(t). Q(t) is the varying rate of flow through the sample.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In a falling head permeameter, both the head and the flow rate vary with time.</p>
+</div>
+<p>The analysis is a bit more complicated</p>
+<p><img alt="" src="../../_images/FHanalysis1.png" /></p>
+<p><img alt="" src="../../_images/FHanalysis2.png" /></p>
+<p><a class="reference external" href="http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/03aquiferproperties/MODEL3_FHPerm.xls">MODEL3_FHPerm.xls</a> is a spreadsheet program that implements the falling head equations.</p>
+<div class="figure align-default" id="fhpspreadsheet">
+<a class="reference internal image-reference" href="../../_images/FHPspreadsheet.png"><img alt="../../_images/FHPspreadsheet.png" src="../../_images/FHPspreadsheet.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Falling head permeameter analysis spreadsheet</span><a class="headerlink" href="#fhpspreadsheet" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fhpspreadsheet"><span class="std std-numref">Fig. 13</span></a> is an annotated image of the spreadsheet showing where to enter data to estimate hydraulic conductivity.
+To use the program the data is entered for a particular analysis. If intrinsic permeability is to be calculated then the density and viscosity of water should be determined from a tabulation and entered into the spreadsheet.</p>
 </div>
 </div>
 <div class="section" id="references">
