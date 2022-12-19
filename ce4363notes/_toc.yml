@@ -4,13 +4,13 @@
 format: jb-book
 root: intro
 chapters:
-- file: markdown
-- file: notebooks
+#- file: markdown
+#- file: notebooks
 - file: lessons/00introduction/00introduction
 - file: lessons/01computationtools
 - file: lessons/02water/02water
 - file: lessons/03aquiferproperties/03aquiferproperties
-- file: lessons/04aquiferproperties
+- file: lessons/04aquiferproperties/04aquiferproperties
 - file: lessons/05gwflowprinciples
 - file: lessons/06gwflowequations
 - file: lessons/07gwflow1Dsolutions
