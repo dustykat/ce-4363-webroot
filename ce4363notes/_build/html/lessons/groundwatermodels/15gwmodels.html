@@ -95,16 +95,6 @@
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../markdown.html">
-   Markdown Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../notebooks.html">
-   Content with notebooks
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../00introduction/00introduction.html">
    Introduction
   </a>
@@ -121,11 +111,11 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../03aquiferproperties/03aquiferproperties.html">
-   Aquifer Properties
+   Aquifer Properties - I
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../04aquiferproperties.html">
+  <a class="reference internal" href="../04aquiferproperties/04aquiferproperties.html">
    Aquifer Properties - II
   </a>
  </li>
@@ -361,13 +351,30 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examples">
-   Examples
+  <a class="reference internal nav-link" href="#modflow-6-using-your-own-computer">
+   MODFLOW 6 (Using your own computer)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modflow-on-line">
-   MODFLOW (On-Line)
+  <a class="reference internal nav-link" href="#modflow-6-using-shared-on-line-windows-server-2019-on-aws">
+   MODFLOW 6 (Using Shared On-Line Windows Server 2019 on AWS)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#video-demonstrating-remote-connection">
+     Video Demonstrating Remote Connection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modflow-1988-on-line-structured-input-files">
+   MODFLOW 1988 (On-Line Structured Input Files)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
   </a>
  </li>
 </ul>
@@ -386,11 +393,59 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modflow-6-using-your-own-computer">
+<h2>MODFLOW 6 (Using your own computer)<a class="headerlink" href="#modflow-6-using-your-own-computer" title="Permalink to this headline">¶</a></h2>
+<p>This would be the preferred way to use MODFLOW for this class.  The install is not that hard, but alos not point and click.  A video showing an installation is available for viewing at:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=x_D_rvsQ-tI&amp;feature=youtu.be">Installing ModelMuse and MODFLOW 6 on a local computer</a></p></li>
+</ul>
+<p>The installation process is:</p>
+<ol class="simple">
+<li><p>GOOGLE “modflow 6”  and/or select: <a class="reference external" href="https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model">https://www.usgs.gov/software/modflow-6-usgs-modular-hydrologic-model</a> Download the MODFLOW 6 program (choose windows installer)</p></li>
+<li><p>GOOGLE “ModelMuse” and/or select: <a class="reference external" href="https://www.usgs.gov/software/modelmuse-a-graphical-user-interface-groundwater-models">https://www.usgs.gov/software/modelmuse-a-graphical-user-interface-groundwater-models</a>  Download the interface program (installer for 32/64 bit.  Do not commit to 64 bit only (it might not work well).  When you get a real job, have an IT professional do the install and testing)</p></li>
+<li><p>Create C:/WRDAPP folder to house modflow binaries - note the folder attaches at C:/  any other path will probably mess things up later on.</p></li>
+<li><p>Install ModelMuse using installer (double click, accept defaults)</p></li>
+<li><p>Move the modflow package into C:/WRDAPP folder, extract package, put into folder root.</p></li>
+<li><p>Start ModelMuse</p></li>
+</ol>
+<ul class="simple">
+<li><p>create MODFLOW</p></li>
+<li><p>next</p></li>
+<li><p>next</p></li>
+<li><p>Model/MODFLOW Program Locations</p></li>
+<li><p>set the directory path (may need to edit names a bit)</p></li>
+</ul>
+<ol class="simple">
+<li><p>Restart ModelMuse and run tutorial.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Pray for smiley faces!</p></li>
+<li><p>Yay! Install complete.</p></li>
+</ul>
 </div>
-<div class="section" id="modflow-on-line">
-<h2>MODFLOW (On-Line)<a class="headerlink" href="#modflow-on-line" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modflow-6-using-shared-on-line-windows-server-2019-on-aws">
+<h2>MODFLOW 6 (Using Shared On-Line Windows Server 2019 on AWS)<a class="headerlink" href="#modflow-6-using-shared-on-line-windows-server-2019-on-aws" title="Permalink to this headline">¶</a></h2>
+<p>A fully provisioned implementation of ModelMuse and MODFLOW 6 is available for use at:</p>
+<ul class="simple">
+<li><p><strong>server name</strong> <a class="reference external" href="http://kittyinthewindow.ddns.net">kittyinthewindow.ddns.net</a></p></li>
+<li><p><strong>user name</strong> ce3372-share</p></li>
+<li><p><strong>passwort</strong> modflow63$hare</p></li>
+</ul>
+<p>You must access using a <strong>Remote Desktop Protocol</strong> client application, it is built-in to Windows</p>
+<ul class="simple">
+<li><p>Windows Support Pages: <a class="reference external" href="https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c">https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c</a></p></li>
+<li><p>Windows 10 Client: <a class="reference external" href="https://apps.microsoft.com/store/detail/microsoft-remote-desktop/9WZDNCRFJ3PS?hl=en-au&amp;gl=au&amp;rtc=1&amp;activetab=pivot%3Aoverviewtab">https://apps.microsoft.com/store/detail/microsoft-remote-desktop/9WZDNCRFJ3PS?hl=en-au&amp;gl=au&amp;rtc=1&amp;activetab=pivot%3Aoverviewtab</a></p></li>
+<li><p>Mac OS Users: <a class="reference external" href="https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12">https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12</a></p></li>
+<li><p>iOS Users: <a class="reference external" href="https://apps.apple.com/app/microsoft-remote-desktop/id714464092">https://apps.apple.com/app/microsoft-remote-desktop/id714464092</a> <strong>This would be really stupid to try to operate on a phone</strong> but you could.  I think for iPad access this might make sense.</p></li>
+<li><p>Other Drug Users (Android/Linux):<a class="reference external" href="https://play.google.com/store/apps/details?id=com.microsoft.rdc.android">https://play.google.com/store/apps/details?id=com.microsoft.rdc.android</a></p></li>
+</ul>
+<div class="section" id="video-demonstrating-remote-connection">
+<h3>Video Demonstrating Remote Connection<a class="headerlink" href="#video-demonstrating-remote-connection" title="Permalink to this headline">¶</a></h3>
+<p>A video demonstrating remote connection is available at <a class="reference external" href="https://youtu.be/3Rv6e61FBYk">Login to shared server running ModelMuse and MODFLOW 6</a></p>
+</div>
+</div>
+<div class="section" id="modflow-1988-on-line-structured-input-files">
+<h2>MODFLOW 1988 (On-Line Structured Input Files)<a class="headerlink" href="#modflow-1988-on-line-structured-input-files" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> pwd
@@ -403,6 +458,12 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="http://54.243.252.9/ce-4363-webroot/3-Readings/Groundwater_modelling_exercise.pdf">Groundwater Modeling Exercise (used in video)</a></p></li>
+</ol>
 </div>
 </div>
 
