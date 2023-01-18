@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Aquifer Properties - I
+# # Aquifer Properties - I (pp. 66-93)
 
 # ## Density and Specific Weight
 # 
