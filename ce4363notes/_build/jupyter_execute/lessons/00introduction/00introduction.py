@@ -3,11 +3,7 @@
 
 # # Introduction
 
-# In[ ]:
-
-
-
-
+# Usual introduction showing the syllabus, Blackboard and server access.
 
 # ## Homework
 # 
