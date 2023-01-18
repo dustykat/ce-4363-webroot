@@ -92,7 +92,7 @@
 # - **user name** MODFLOW99
 # - **passwort** On-Line
 # 
-# A video demonstrating the creation and running of a model using this implementation is available at [link](url).
+# A video demonstrating the creation and running of a model using this implementation is available at [YouTube](https://youtu.be/ZxFDEgkOkzU).
 
 # ## References
 # 
