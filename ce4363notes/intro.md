@@ -23,12 +23,10 @@ e = mc^2
 
 Or as functional code blocks.  In either case you can cut-and-paste onto your computer (assuming it is configured correctly) and run the examples at your leisure.
 
+## Suggested Citation
+
+<font color=blue>Theodore G. Cleveland (2022), *Groundwater Hydrology: Instructor's Notes for CE 4363/5363 at TTU*. Department of Civil, Environmental, and Construction Engineering, Whitacre College of Engineering, Texas Tech University</font>
+
 ## Copyright Information
 Copyright © 2023 Cleveland, T. G. *The contents of this book are licensed for free consumption under the following license: [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)*
-
-This JupyterBook is an OER.
-:::{note}
-Open Educational Resources (OERs) are any type of educational materials that are either in the public domain, or published under open licenses (e.g. Creative Commons) that specify how materials can be used, reused, adapted, shared and modified according to specific needs. They can include textbooks, lecture notes, syllabi, assignments and tests.
-:::
-
 
