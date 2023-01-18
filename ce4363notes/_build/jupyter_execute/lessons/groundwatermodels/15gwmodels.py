@@ -4,6 +4,36 @@
 # # MODFLOW Program
 
 # ## Introduction
+# 
+# *Adapted from [https://pubs.usgs.gov/fs/FS-121-97/](https://pubs.usgs.gov/fs/FS-121-97/)*
+# 
+# The modular finite-difference groundwater flow model (MODFLOW) developed by the U.S. Geological Survey (USGS) is a computer program for simulating common features in groundwater systems (McDonald and Har- baugh, 1988; Harbaugh and McDonald, 1996). The program was constructed in the ear- ly 1980s and has continually evolved since then with development of many new packages and related programs for groundwater studies. Currently MODFLOW is the most widely used program in the world for simulating ground- water flow. The popularity of the program is attributed to the following factors:
+# - The finite-difference method used by MODFLOW is relatively easy to understand and apply to a wide variety of real-world conditions.
+# - MODDFLOW works on many different computer systems ranging from personal computers to super computers.
+# - MODFLOW can be applied as a one- dimensional, two-dimensional, or quasi- or full three-dimensional model.
+# - Each simulation feature of MODFLOW has been evensively tested.
+# - Data input instructions and theory are well documented.
+# - The modular program design of MODFLOW allows for new simulation features to be added with relative ease.
+# - A wide variety of computer programs written by the USGS, other federal agencies, and private companies are available to analyze field data and con- struct input data sets for MODFLOW.
+# - A wide variety of programs are available to read output from MODFLOW and graphically present model results in ways that are easily understood.
+# - MODFLOW has been accepted in many court cases in the United States as a legitimate approach to analysis of groundwater systems.
+# 
+# ### Modeling
+# 
+# Modeling is a tool used by engineers to make decisions regarding design and operation of an environmental system.  Models can be used to forecast future conditions in response to those decisions, select a best set of decisions based on some desired criterion, or determine the most likely physical values that explain an observed condition.
+# 
+# Because most real systems are far too complicated to model as they are, a set of simplifying assumptions is posed to make the modeling problem tractable - this is often called the "conceptual model".  
+# 
+# On the basis of these simplifying assumptions a "mathematical model" (usually balance equations) is created.  The solution of the mathematical model yields the behavior of the system being studied.
+# 
+# After the model is created, it is "calibrated".  This is the process of adjusting model parameters (transmissivity, storativity, etc.), forcing inputs, and geometry until the model response is identical (within some tolerance) to the observed historical response of the real system.  Multiple calibrations can produce identical responses, so great care must be taken in calibrating and testing a model before using it  - once acceptably calibrated the model can be used for forecasting.
+# 
+# **Classification of Environmental Models:**
+# 1. Physical models (experimentation) - usually impractical for groundwater 'systems'.
+# 2. Analog Models
+# 3. Mathematical Models
+#   - Analytical solutions - application of calculus to achieve closed-form equations (some of which can be very difficult to evaluate).
+#   - Numerical solutions - application of numerical methods to achieve accurate approximations to the governing equations.
 
 # ## MODFLOW 6 (Using your own computer)
 # 
@@ -56,16 +86,19 @@
 
 # ## MODFLOW 1988 (On-Line Structured Input Files)
 # 
-
-# In[1]:
-
-
-get_ipython().system(' pwd')
-
+# A functioning web-accessible implementation of MODFLOW88 is available at [54.243.252.9](http://54.243.252.9/toolbox/gwhydraulics/modflow/).  This is the hardest to use in terms of file management and error interpretation, but is reasonably easy to employ if using legacy files and the older documentation.
+# 
+# - **server name** 54.243.252.9/toolbox/gwhydraulics/modflow/
+# - **user name** MODFLOW99
+# - **passwort** On-Line
+# 
+# A video demonstrating the creation and running of a model using this implementation is available at [link](url).
 
 # ## References
 # 
 # 1. [Groundwater Modeling Exercise (used in video)](http://54.243.252.9/ce-4363-webroot/3-Readings/Groundwater_modelling_exercise.pdf)
+# 2. [MODFLOW Notes (Cleveland circa 1992)](http://54.243.252.9/ce-4363-webroot/3-Readings/modflowNotes01.pdf)  The Obleo Aquifer simulation in the MODFLOW88 video is described in these notes.
+# 3. [MODFLOW Manual (US EPA)](http://54.243.252.9/ce-4363-webroot/3-Readings/modflmn.pdf) An EPA training document on the use of MODFLOW
 
 # In[ ]:
 
