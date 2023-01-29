@@ -188,6 +188,10 @@
 
 # ## Homogeneity and Isotropy (pg 108)
 # 
+# [Homogeneous](https://www.dws.gov.za/Groundwater/Groundwater_Dictionary/index.html?introduction_homogeneous.htm) means property is same in all locations; the opposite is heterogeneous.
+# 
+# [Isotropic](https://www.dws.gov.za/Groundwater/Groundwater_Dictionary/index.html?introduction_isotropic.htm) means property is same in all directions; the opposite in anisotropic.
+# 
 
 # ## References
 # 

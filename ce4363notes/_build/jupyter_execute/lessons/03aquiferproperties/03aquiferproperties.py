@@ -215,9 +215,15 @@
 # 
 # ![](Kdistributions.png)
 # 
-# - Kozeny-Carman (for sands) $$k = \frac{n^3}{5S_0^2(1-n)^2}$$ where $k$ is intrinsic permeability, $S_0$ is specific surface, and $n$ is the porosity.
+# - Kozeny-Carman (for sands) 
 # 
-# - Similar formula based on mean grain diameter $$k = \frac{d_{50}^2}{180} \frac{n^3}{(1-n)^2}$$
+# $$k = \frac{n^3}{5S_0^2(1-n)^2}$$ 
+# 
+# where $k$ is intrinsic permeability, $S_0$ is specific surface, and $n$ is the porosity.
+# 
+# - Similar formula based on mean grain diameter 
+# 
+# $$k = \frac{d_{50}^2}{180} \frac{n^3}{(1-n)^2}$$
 # 
 # Once the intrinsic permeability is determined the hydraulic conductivtiy is recovered from
 # 
