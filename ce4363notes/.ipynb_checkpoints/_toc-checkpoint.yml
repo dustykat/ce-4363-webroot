@@ -14,7 +14,7 @@ chapters:
 - file: lessons/05gwflowprinciples/05gwflowprinciples
 - file: lessons/06gwflowequations/06gwflowequations
 - file: lessons/07gwflow1Dsolutions/07gwflow1Dsolutions
-- file: lessons/08gwflow2wells
+- file: lessons/08gwflow2wells/08gwflow2wells
 - file: lessons/09gwflow2wells
 - file: lessons/10gwflow2wells
 - file: lessons/11gwflow2wells

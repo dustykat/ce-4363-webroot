@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Groundwater Flow Solutions (pp. 143-151; 171-175) &#8212; CE 4363/5363 Groundwater Hydrology</title>
+    <title>Groundwater Flow to Wells - I &#8212; CE 4363/5363 Groundwater Hydrology</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Groundwater Flow to Wells - I" href="../08gwflow2wells.html" />
-    <link rel="prev" title="Groundwater Flow Equations (pp. 130-135; XX-XX)" href="../06gwflowequations/06gwflowequations.html" />
+    <link rel="next" title="Groundwater Flow to Wells - II" href="../09gwflow2wells.html" />
+    <link rel="prev" title="Groundwater Flow Solutions (pp. 143-151; 171-175)" href="../07gwflow1Dsolutions/07gwflow1Dsolutions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -129,13 +129,13 @@
    Groundwater Flow Equations (pp. 130-135; XX-XX)
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07gwflow1Dsolutions/07gwflow1Dsolutions.html">
    Groundwater Flow Solutions (pp. 143-151; 171-175)
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../08gwflow2wells.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Groundwater Flow to Wells - I
   </a>
  </li>
@@ -282,7 +282,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/lessons/07gwflow1Dsolutions/07gwflow1Dsolutions.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/lessons/08gwflow2wells/08gwflow2wells.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -302,7 +302,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/07gwflow1Dsolutions/07gwflow1Dsolutions.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/08gwflow2wells/08gwflow2wells.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -323,7 +323,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/07gwflow1Dsolutions/07gwflow1Dsolutions.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/08gwflow2wells/08gwflow2wells.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -346,42 +346,13 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#steady-flow-1d-cartesian">
-   Steady Flow 1D Cartesian
+  <a class="reference internal nav-link" href="#terminology">
+   Terminology
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#confined-aquifer-pp-143-145">
-     Confined Aquifer (pp. 143-145)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unconfined-aquifer-pp-145-151">
-     Unconfined Aquifer (pp. 145-151)
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#steady-flow-1d-cylindrical">
-   Steady Flow 1D Cylindrical
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#confined-aquifer-pp-172-174">
-     Confined Aquifer (pp. 172-174)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#unconfined-aquifer-pp-175">
-     Unconfined Aquifer (pp. 175)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
+  <a class="reference internal nav-link" href="#unsteady-flow-solutions">
+   Unsteady Flow Solutions
   </a>
  </li>
 </ul>
@@ -395,71 +366,17 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="groundwater-flow-solutions-pp-143-151-171-175">
-<h1>Groundwater Flow Solutions (pp. 143-151; 171-175)<a class="headerlink" href="#groundwater-flow-solutions-pp-143-151-171-175" title="Permalink to this headline">¶</a></h1>
-<p>This section presents a few “classical” steady flow solutions in a couple of useful geometries.</p>
-<div class="section" id="steady-flow-1d-cartesian">
-<h2>Steady Flow 1D Cartesian<a class="headerlink" href="#steady-flow-1d-cartesian" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="confined-aquifer-pp-143-145">
-<h3>Confined Aquifer (pp. 143-145)<a class="headerlink" href="#confined-aquifer-pp-143-145" title="Permalink to this headline">¶</a></h3>
-<p><img alt="" src="../../_images/cf1d001.png" /></p>
-<p><img alt="" src="../../_images/cf1d002.png" /></p>
-<p><img alt="" src="../../_images/cf1d003.png" /></p>
-<p><img alt="" src="../../_images/cf1d004.png" /></p>
-<p><img alt="" src="../../_images/cf1d005.png" /></p>
-<p>1D flow in a confined aquifer can be solved by direct application of continunity and Darcy’s law.  For example consider:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="groundwater-flow-to-wells-i">
+<h1>Groundwater Flow to Wells - I<a class="headerlink" href="#groundwater-flow-to-wells-i" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="terminology">
+<h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Drawdown</p></li>
+<li><p>Cone of Depression</p></li>
+</ul>
 </div>
-<div class="section" id="unconfined-aquifer-pp-145-151">
-<h3>Unconfined Aquifer (pp. 145-151)<a class="headerlink" href="#unconfined-aquifer-pp-145-151" title="Permalink to this headline">¶</a></h3>
-<p><img alt="" src="../../_images/uf1d001.png" /></p>
-<p><img alt="" src="../../_images/uf1d002.png" /></p>
-<p><img alt="" src="../../_images/uf1d003.png" /></p>
-<p><img alt="" src="../../_images/uf1d004.png" /></p>
-<p><img alt="" src="../../_images/uf1d005.png" /></p>
-<p><img alt="" src="../../_images/uf1d006.png" /></p>
-<p>1D flow in an unconfined aquifer can be solved by direct application of continunity and Darcy’s law.  For example consider:</p>
-<p><img alt="" src="../../_images/unconfined-with-recharge-001.png" /></p>
-<p><strong>Solution Sketch</strong></p>
-<p>Apply continunity (or actually the unconfined flow equation)</p>
-<p><img alt="" src="../../_images/unconfined-with-recharge-002.png" /></p>
-<p>Then analysis (e.g. calculus) to find the result sought.</p>
-<p><img alt="" src="../../_images/unconfined-with-recharge-003.png" /></p>
-<p><strong>Another similar example:</strong></p>
-<p><img alt="" src="../../_images/unconfined-with-recharge2-001.png" /></p>
-<p><img alt="" src="../../_images/unconfined-with-recharge2-002.png" /></p>
-<p><img alt="" src="../../_images/unconfined-with-recharge2-003.png" /></p>
-<p><img alt="" src="../../_images/unconfined-with-recharge2-004.png" /></p>
-</div>
-</div>
-<div class="section" id="steady-flow-1d-cylindrical">
-<h2>Steady Flow 1D Cylindrical<a class="headerlink" href="#steady-flow-1d-cylindrical" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="confined-aquifer-pp-172-174">
-<h3>Confined Aquifer (pp. 172-174)<a class="headerlink" href="#confined-aquifer-pp-172-174" title="Permalink to this headline">¶</a></h3>
-<p>1D radial in a confined aquifer can be solved by direct application of continunity and Darcy’s law.  For example consider:</p>
-<p><img alt="" src="../../_images/cfwell001.png" /></p>
-<p><img alt="" src="../../_images/cfwell002.png" /></p>
-<p><img alt="" src="../../_images/cfwell003.png" /></p>
-<p><img alt="" src="../../_images/cfwell004.png" /></p>
-<p><img alt="" src="../../_images/cfwell005.png" /></p>
-<p><img alt="" src="../../_images/cfwell006.png" /></p>
-<p><img alt="" src="../../_images/cfwell007.png" /></p>
-<p><img alt="" src="../../_images/cfwell008.png" /></p>
-<p><img alt="" src="../../_images/cfwell009.png" /></p>
-</div>
-<div class="section" id="unconfined-aquifer-pp-175">
-<h3>Unconfined Aquifer (pp. 175)<a class="headerlink" href="#unconfined-aquifer-pp-175" title="Permalink to this headline">¶</a></h3>
-<p>1D radial in unconfined aquifer can be solved by direct application of continunity and Darcy’s law.  For example consider:</p>
-<p><img alt="" src="../../_images/unwell001.png" /></p>
-<p><img alt="" src="../../_images/unwell002.png" /></p>
-<p><img alt="" src="../../_images/unwell003.png" /></p>
-<p><img alt="" src="../../_images/unwell004.png" /></p>
-</div>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p><a class="reference external" href="http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/06gwflowequations/Lecture_008.PDF">Cleveland, T.G., (2001) <em>Groundwater Hydrology - Lecture 008</em> Lecture Notes to accompany CE 6361 at the University of Houston</a></p></li>
-</ol>
+<div class="section" id="unsteady-flow-solutions">
+<h2>Unsteady Flow Solutions<a class="headerlink" href="#unsteady-flow-solutions" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -476,7 +393,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./lessons/07gwflow1Dsolutions"
+            path: "./lessons/08gwflow2wells"
         },
         predefinedOutput: true
     }
@@ -493,19 +410,19 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../06gwflowequations/06gwflowequations.html" title="previous page">
+        <a class="left-prev" href="../07gwflow1Dsolutions/07gwflow1Dsolutions.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Groundwater Flow Equations (pp. 130-135; XX-XX)</p>
+                <p class="prevnext-title">Groundwater Flow Solutions (pp. 143-151; 171-175)</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../08gwflow2wells.html" title="next page">
+        <a class="right-next" href="../09gwflow2wells.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Groundwater Flow to Wells - I</p>
+                <p class="prevnext-title">Groundwater Flow to Wells - II</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

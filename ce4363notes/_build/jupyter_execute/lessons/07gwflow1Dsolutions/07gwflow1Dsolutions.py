@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Groundwater Flow Solutions
+# # Groundwater Flow Solutions (pp. 143-151; 171-175)
+# 
+# This section presents a few "classical" steady flow solutions in a couple of useful geometries.
 # 
 # ## Steady Flow 1D Cartesian
 # 
