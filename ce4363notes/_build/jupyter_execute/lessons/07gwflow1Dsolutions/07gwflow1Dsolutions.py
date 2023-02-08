@@ -97,8 +97,22 @@
 # 
 # ![](unwell004.png)
 # 
-
 # 
+# **A similar problem with a recharge basin**
+# 
+# ![](ucrech.png)
+
+# ## Transient (Unsteady) Solutions
+# 
+# ![](transient1-001.png)
+# 
+# ![](transient1-002.png)
+# 
+# ![](transient1-003.png)
+# 
+# ![](transient1-004.png)
+# 
+# ![](transient1-005.png)
 
 # ## References 
 # 
