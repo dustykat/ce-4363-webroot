@@ -42,6 +42,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -356,6 +358,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementing-solutions">
+   Implementing Solutions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#references">
    References
   </a>
@@ -405,10 +412,61 @@
 <p><img alt="" src="../../_images/cf2well006.png" /></p>
 <p><img alt="" src="../../_images/cf2well007.png" /></p>
 </div>
+<div class="section" id="implementing-solutions">
+<h2>Implementing Solutions<a class="headerlink" href="#implementing-solutions" title="Permalink to this headline">¶</a></h2>
+<p>In the olden days, one would look up well function values in tabulations such as <a class="reference external" href="https://pubs.usgs.gov/twri/twri3-b3/pdf/TWRI_3-B3.pdf">TWRI BOOK 3 Chapter B3 TYPE CURVES FOR SELECTED PROBLEMS OF FLOW TO WELLS IN CONFINED AQUIFERS</a></p>
+<p>Many of the special functions were leter embedded in the analysis packages for spreadsheets.</p>
+<p>Or one can simply program themselves as shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W</span><span class="p">(</span><span class="n">u</span><span class="p">):</span> <span class="c1"># Theis well function using exponential integral</span>
+    <span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">sc</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">expn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">storage</span><span class="p">,</span><span class="n">transmissivity</span><span class="p">,</span><span class="n">discharge</span><span class="p">):</span> <span class="c1"># Drawdown function using exponential integral</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="p">((</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">storage</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">transmissivity</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">((</span><span class="n">discharge</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">transmissivity</span><span class="p">))</span><span class="o">*</span><span class="n">W</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets choose an the example from the book on pg. 162 to illustrate the homebrew script.  The relevant problem parametrs are:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K = 14.9 m/d\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(b = 20.1 m\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(T = Kb = 299 m^2/d\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(S = 0.0051\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_w = 2725 m^3/d\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r = 7.0 m \)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(t = 1 d\)</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radius</span><span class="o">=</span><span class="mf">7.0</span>
+<span class="n">time</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">storage</span><span class="o">=</span><span class="mf">0.0051</span>
+<span class="n">transmissivity</span><span class="o">=</span><span class="mi">299</span>
+<span class="n">discharge</span><span class="o">=</span><span class="mi">2725</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Drawdown is &quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">storage</span><span class="p">,</span><span class="n">transmissivity</span><span class="p">,</span><span class="n">discharge</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span><span class="s2">&quot; meters&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drawdown is  5.73  meters
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p><a class="reference external" href="http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/08gwflow2wells/Lecture009.PDF">Cleveland, T.G., (2001) <em>Groundwater Hydrology - Lecture 009</em> Lecture Notes to accompany CE 6361 at the University of Houston</a></p></li>
+<li><p><a class="reference external" href="https://pubs.usgs.gov/twri/twri3-b3/pdf/TWRI_3-B3.pdf">TWRI BOOK 3 Chapter B3 TYPE CURVES FOR SELECTED PROBLEMS OF FLOW TO WELLS IN CONFINED AQUIFERS</a></p></li>
 </ol>
 </div>
 </div>

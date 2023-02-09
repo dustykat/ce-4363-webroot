@@ -368,37 +368,9 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="groundwater-flow-to-wells-ii">
 <h1>Groundwater Flow to Wells - II<a class="headerlink" href="#groundwater-flow-to-wells-ii" title="Permalink to this headline">¶</a></h1>
+<p>Leaky Confining Layer (No storage in the confining layer) A.K.A. Hantush (1956) Solution</p>
 <div class="section" id="unsteady-flow-solutions">
 <h2>Unsteady Flow Solutions<a class="headerlink" href="#unsteady-flow-solutions" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W</span><span class="p">(</span><span class="n">u</span><span class="p">):</span> <span class="c1"># Theis well function using exponential integral</span>
-    <span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">sc</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">expn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">storage</span><span class="p">,</span><span class="n">transmissivity</span><span class="p">,</span><span class="n">discharge</span><span class="p">):</span> <span class="c1"># Drawdown function using exponential integral</span>
-    <span class="kn">import</span> <span class="nn">math</span>
-    <span class="n">u</span> <span class="o">=</span> <span class="p">((</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">storage</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">transmissivity</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="p">((</span><span class="n">discharge</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">transmissivity</span><span class="p">))</span><span class="o">*</span><span class="n">W</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-    
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="mi">824</span><span class="p">,</span><span class="mi">8</span><span class="o">/</span><span class="mi">1440</span><span class="p">,</span><span class="mf">2.4e-05</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">42400</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2819598053120422
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wh</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span> <span class="c1"># Hantush Leaky aquifer well function</span>
@@ -426,8 +398,8 @@
     <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">LOGINF</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
     <span class="n">ym</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span>  <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
     <span class="n">dy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="n">w</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ym</span> <span class="o">-</span> <span class="p">(</span><span class="n">rho</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">ym</span> <span class="p">)</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">/</span> <span class="n">ym</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">w</span>
+    <span class="n">wh</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ym</span> <span class="o">-</span> <span class="p">(</span><span class="n">rho</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">ym</span> <span class="p">)</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">/</span> <span class="n">ym</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">wh</span>
 </pre></div>
 </div>
 </div>
@@ -440,6 +412,35 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7015000135841929
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">W</span><span class="p">(</span><span class="n">u</span><span class="p">):</span> <span class="c1"># Theis well function using exponential integral</span>
+    <span class="kn">import</span> <span class="nn">scipy.special</span> <span class="k">as</span> <span class="nn">sc</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">expn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">s</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span><span class="n">time</span><span class="p">,</span><span class="n">storage</span><span class="p">,</span><span class="n">transmissivity</span><span class="p">,</span><span class="n">discharge</span><span class="p">):</span> <span class="c1"># Drawdown function using exponential integral</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="p">((</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">storage</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">transmissivity</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">((</span><span class="n">discharge</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">transmissivity</span><span class="p">))</span><span class="o">*</span><span class="n">W</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">(</span><span class="mi">824</span><span class="p">,</span><span class="mi">8</span><span class="o">/</span><span class="mi">1440</span><span class="p">,</span><span class="mf">2.4e-05</span><span class="p">,</span><span class="mi">1400</span><span class="p">,</span><span class="mi">42400</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.2819598053120422
 </pre></div>
 </div>
 </div>
