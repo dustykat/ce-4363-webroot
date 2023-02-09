@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Water (Fetter pp. 1-23) &#8212; CE 4363/5363 Groundwater Hydrology</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Aquifer Properties - I (pp. 66-93)" href="../03aquiferproperties/03aquiferproperties.html" />
+    <link rel="prev" title="Computational Tools" href="../01computationaltools/01computationaltools.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo2.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CE 4363/5363 Groundwater Hydrology</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to CE 4363/5363 Groundwater Hydrology
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00introduction/00introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01computationaltools/01computationaltools.html">
+   Computational Tools
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Water (Fetter pp. 1-23)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03aquiferproperties/03aquiferproperties.html">
+   Aquifer Properties - I (pp. 66-93)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04aquiferproperties/04aquiferproperties.html">
+   Aquifer Properties - II (pp. 93-109)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05gwflowprinciples/05gwflowprinciples.html">
+   Groundwater Flow Principles (pp. 118 - 127)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06gwflowequations/06gwflowequations.html">
+   Groundwater Flow Equations (pp. 130-135; XX-XX)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07gwflow1Dsolutions/07gwflow1Dsolutions.html">
+   Groundwater Flow Solutions (pp. 143-151; 171-175)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08gwflow2wells/08gwflow2wells.html">
+   Groundwater Flow to Wells - I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09gwflow2wells.html">
+   Groundwater Flow to Wells - II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10gwflow2wells.html">
+   Groundwater Flow to Wells - III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11gwflow2wells.html">
+   Groundwater Flow to Wells - IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12gwflow2wells.html">
+   Groundwater Flow to Wells IV
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../groundwatermodels/13gwmodels.html">
+   Groundwater Models
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../groundwatermodels/14gwmodels.html">
+     Transient Groundwater Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../groundwatermodels/15gwmodels.html">
+     MODFLOW Program
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../groundwatermodels/16gwmodels.html">
+     Regional Flow Models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../16recharge.html">
+   Recharge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../17fieldmethods.html">
+   Field Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../18waterwellconstruction.html">
+   Water Well Construction - I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../19waterwellconstruction.html">
+   Water Well Construction - II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../20gwchemistry.html">
+   Groundwater Chemistry - I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../21gwchemistry.html">
+   Groundwater Chemistry - II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../22gwcontamination.html">
+   Groundwater Contamination - I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23gwcontamination.html">
+   Groundwater Contamination - II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../24contaminanttransport.html">
+   Contaminant Transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../25gwdevelopment.html">
+   Groundwater Development and Management
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../26waterlaw.html">
+   Water Law
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lessons/02water/02water.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/02water/02water.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/02water/02water.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydrology">
+   Hydrology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydrogeology">
+   Hydrogeology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydrologic-cycle">
+   Hydrologic Cycle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydrologic-equation-water-budget">
+   Hydrologic Equation (Water Budget)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#surface-hydrologic-system">
+     Surface Hydrologic System
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#surface-water-budget">
+     Surface Water Budget
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sub-surface-hydrologic-system">
+     Sub-surface Hydrologic System
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sub-surface-water-budget">
+     Sub-surface Water Budget
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combined-hydrologic-system">
+     Combined Hydrologic System
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#business-aspects">
+   Business Aspects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ethics">
+   Ethics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-sources">
+   Data Sources
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="water-fetter-pp-1-23">
+<h1>Water (Fetter pp. 1-23)<a class="headerlink" href="#water-fetter-pp-1-23" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hydrology">
+<h2>Hydrology<a class="headerlink" href="#hydrology" title="Permalink to this headline">¶</a></h2>
+<p>The study of the occurance, distribution, movement, and chemistry of water</p>
+</div>
+<div class="section" id="hydrogeology">
+<h2>Hydrogeology<a class="headerlink" href="#hydrogeology" title="Permalink to this headline">¶</a></h2>
+<p>The interrelationships of geologic materials and water (geohydrology is an alternative term)</p>
+</div>
+<div class="section" id="hydrologic-cycle">
+<h2>Hydrologic Cycle<a class="headerlink" href="#hydrologic-cycle" title="Permalink to this headline">¶</a></h2>
+<p>Usual definition, but here we focus on the subsurface portion.</p>
+<p>Here is a typical diagram depicting the hydrologic cycle.</p>
+<p><img alt="" src="../../_images/hydrologic_cycle.png" /></p>
+<p>The driving force for the cycle (not shown) is solar energy that provides the energy to vaporize liquid water that then rises into clouds, moves onshore, and rains (or snow, sleet, <span class="math notranslate nohighlight">\(\dots\)</span>.  and other forms of <strong>precipitation</strong>)
+A portion of the rain becomes runoff, another portion returns to the atmosphere as evaporation, another portion infiltrates into the ground and becomes groundwater.</p>
+<p>The surface water system would be the part of the diagram that lies above the plane defined by the ocean and infiltration line.
+The subsurface system is the part that is below this plane.</p>
+<p>Expressed as a simple system diagram it would be depicted in the figure below</p>
+<p><img alt="" src="../../_images/system_diagram.png" /></p>
+</div>
+<div class="section" id="hydrologic-equation-water-budget">
+<h2>Hydrologic Equation (Water Budget)<a class="headerlink" href="#hydrologic-equation-water-budget" title="Permalink to this headline">¶</a></h2>
+<p>The water budget, or <strong>hydrologic balance</strong> is simply the expression of the conservation of mass in hydrologic terms for a hydrologic system.<br />
+Generally it is expressed as a rate (or volume) balance.
+The hydrologic equation is the fundamental tool in hydrology to describe amounts of water in storage in different compartments at different scales.</p>
+<p>The equation expressed in “words” is</p>
+<p>Rate of inflow - Rate of outflow =  Rate of change of storage + Rate of internal mass generation.</p>
+<p>Symbolically it is exrepssed as:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dI}{dt} - \frac{dO}{dt} = \frac{dS}{dt} + \frac{dG}{dt}\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(I\)</span> is inflow volume, <span class="math notranslate nohighlight">\(O\)</span> is outflow volume, <span class="math notranslate nohighlight">\(S\)</span> is storage volume (i.e. within a watershed), and <span class="math notranslate nohighlight">\(G\)</span> is generated volume.
+<span class="math notranslate nohighlight">\(G\)</span> is generally zero, but is included to be consistent with the balance equations you have learned elsewhere (i.e. environmental engineering, chemistry, <span class="math notranslate nohighlight">\(\dots\)</span>)</p>
+<div class="section" id="surface-hydrologic-system">
+<h3>Surface Hydrologic System<a class="headerlink" href="#surface-hydrologic-system" title="Permalink to this headline">¶</a></h3>
+<p>Here is the surface water system broken into its own sub-system.</p>
+<p><img alt="" src="../../_images/surface_system_diagram.png" /></p>
+<p>Notice the dashed line is the boundary – exactly like a control volume in fluids.</p>
+</div>
+<div class="section" id="surface-water-budget">
+<h3>Surface Water Budget<a class="headerlink" href="#surface-water-budget" title="Permalink to this headline">¶</a></h3>
+<p>From the surface water system diagram, appropriate budget components are:</p>
+<ul class="simple">
+<li><p>Inflows:  Rainfall; Surface water from outside boundary, recharge from Groundwater.</p></li>
+<li><p>Outflows: Evapotranspiration; Surface water leaving boundary; Infiltration to groundwater.</p></li>
+<li><p>Storage:  Water levels in lakes, rivers, ponds within the boundary; water stored on leaves and other surfaces.</p></li>
+</ul>
+</div>
+<div class="section" id="sub-surface-hydrologic-system">
+<h3>Sub-surface Hydrologic System<a class="headerlink" href="#sub-surface-hydrologic-system" title="Permalink to this headline">¶</a></h3>
+<p>Here is the sub-surface water system broken into its own sub-system.</p>
+<p><img alt="" src="../../_images/subsurface_system_diagram.png" /></p>
+<p>Notice the dashed line is the boundary – exactly like a control volume in fluids.</p>
+</div>
+<div class="section" id="sub-surface-water-budget">
+<h3>Sub-surface Water Budget<a class="headerlink" href="#sub-surface-water-budget" title="Permalink to this headline">¶</a></h3>
+<p>From the sub-surface water system diagram, appropriate budget components are:</p>
+<ul class="simple">
+<li><p>Inflows:  Groundwater flow from outside boundary; Recharge from surface system (via infiltration)</p></li>
+<li><p>Outflows: Groundwater flow out of the boundary; Discharge (pumping; springs) to surface system</p></li>
+<li><p>Storage:  Water levels in aquifers within the boundary</p></li>
+</ul>
+</div>
+<div class="section" id="combined-hydrologic-system">
+<h3>Combined Hydrologic System<a class="headerlink" href="#combined-hydrologic-system" title="Permalink to this headline">¶</a></h3>
+<p>Here are the two systems “combined.”
+Communication is by the two shaded paths on the figure.</p>
+<p><img alt="" src="../../_images/combined_system_diagram.png" /></p>
+<p>Loss from the surface system becomes gain to the ground system.
+Loss from the ground system becomes gain to the surface system.</p>
+</div>
+</div>
+<div class="section" id="business-aspects">
+<h2>Business Aspects<a class="headerlink" href="#business-aspects" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Contracts</p></li>
+<li><p>Salary</p></li>
+<li><p>Overhead</p></li>
+<li><p>Insurance</p></li>
+</ul>
+</div>
+<div class="section" id="ethics">
+<h2>Ethics<a class="headerlink" href="#ethics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Professional development (continuing education)</p></li>
+<li><p>Honest reporting</p></li>
+<li><p>Advice of bad findings</p></li>
+<li><p>Prevent violation of regulations</p></li>
+<li><p>Conflict of interest</p></li>
+</ul>
+</div>
+<div class="section" id="data-sources">
+<h2>Data Sources<a class="headerlink" href="#data-sources" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://3.137.111.182/ce-3354-webbook/3-Readings/USGS-WSP2020-GroundwaterHydrology/usgs-wsp-2020.pdf">Heath, R.C., 1983. Basic ground-waterhydrology: U.S. Geological Survey Water-SupplyPaper 2220, <strong>pp. 1-5</strong></a></p></li>
+<li><p><a class="reference external" href="https://3.137.111.182/ce-3354-webbook/3-Readings/Groundwater-Viessman/GroundwaterHydrology.pdf">Viessman,W., Knapp, J.W., Lewis, G. L., and Harbaugh, T.E. 1977. “Groundwater Hydrology – Chapter 8” in <em>Introduction to Hydrology</em> 2ed. IEP Publishers, New York, <strong>pp. 291-342</strong></a></p></li>
+<li><p><a class="reference external" href="https://3.137.111.182/ce-3354-webbook/3-Readings/Groundwater-Wisler&amp;Brater/Groundwater-Wisler.pdf">Wisler, C.O, and Brater, E.F. 1949. “Hydrology” John Wiley and Sons, New York <strong>pp. 198-272</strong></a></p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons/02water"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../01computationaltools/01computationaltools.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Computational Tools</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../03aquiferproperties/03aquiferproperties.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Aquifer Properties - I (pp. 66-93)</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
