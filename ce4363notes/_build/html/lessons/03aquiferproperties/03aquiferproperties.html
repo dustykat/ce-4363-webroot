@@ -1,0 +1,925 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aquifer Properties - I (pp. 66-93) &#8212; CE 4363/5363 Groundwater Hydrology</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Aquifer Properties - II (pp. 93-109)" href="../04aquiferproperties/04aquiferproperties.html" />
+    <link rel="prev" title="Water (Fetter pp. 1-23)" href="../02water/02water.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo2.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">CE 4363/5363 Groundwater Hydrology</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to CE 4363/5363 Groundwater Hydrology
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00introduction/00introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01computationaltools/01computationaltools.html">
+   Computational Tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02water/02water.html">
+   Water (Fetter pp. 1-23)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Aquifer Properties - I (pp. 66-93)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04aquiferproperties/04aquiferproperties.html">
+   Aquifer Properties - II (pp. 93-109)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../05gwflowprinciples/05gwflowprinciples.html">
+   Groundwater Flow Principles (pp. 118 - 127)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06gwflowequations/06gwflowequations.html">
+   Groundwater Flow Equations (pp. 130-135; XX-XX)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../07gwflow1Dsolutions/07gwflow1Dsolutions.html">
+   Groundwater Flow Solutions (pp. 143-151; 171-175)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../08gwflow2wells/08gwflow2wells.html">
+   Groundwater Flow to Wells - I (pp. 156-162)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../09gwflow2wells/09gwflow2wells.html">
+   Groundwater Flow to Wells - II (pp. 162 - 166)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10gwflow2wells/10gwflow2wells.html">
+   Groundwater Flow to Wells - III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../11gwflow2wells.html">
+   Groundwater Flow to Wells - IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../12gwflow2wells.html">
+   Groundwater Flow to Wells IV
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../groundwatermodels/13gwmodels.html">
+   Groundwater Models
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../groundwatermodels/14gwmodels.html">
+     Transient Groundwater Models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../groundwatermodels/15gwmodels.html">
+     MODFLOW Program
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../groundwatermodels/16gwmodels.html">
+     Regional Flow Models
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../16recharge.html">
+   Recharge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../17fieldmethods.html">
+   Field Methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../18waterwellconstruction.html">
+   Water Well Construction - I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../19waterwellconstruction.html">
+   Water Well Construction - II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../20gwchemistry.html">
+   Groundwater Chemistry - I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../21gwchemistry.html">
+   Groundwater Chemistry - II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../22gwcontamination.html">
+   Groundwater Contamination - I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../23gwcontamination.html">
+   Groundwater Contamination - II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../24contaminanttransport.html">
+   Contaminant Transport
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../25gwdevelopment.html">
+   Groundwater Development and Management
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../26waterlaw.html">
+   Water Law
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/lessons/03aquiferproperties/03aquiferproperties.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Flessons/03aquiferproperties/03aquiferproperties.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/lessons/03aquiferproperties/03aquiferproperties.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#density-and-specific-weight">
+   Density and Specific Weight
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pressure">
+   Pressure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viscosity">
+   Viscosity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#absolute-viscosity">
+     Absolute Viscosity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apparent-viscosity">
+     Apparent Viscosity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kinematic-viscosity">
+     Kinematic Viscosity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-comments">
+     General Comments
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bulk-modulus">
+   Bulk Modulus
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#materials">
+   Materials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#porosity-pp-74-75">
+   Porosity (pp. 74-75)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measuring-porosity">
+     Measuring Porosity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#measuring-solids-density">
+     Measuring Solids Density
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sediment-packing-pp-75-76">
+   Sediment Packing (pp. 75-76)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sediment-classification">
+   Sediment Classification
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methods">
+     Methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uses">
+     Uses
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-estimiting-k-from-grain-size-distribution">
+     Example: Estimiting
+     <span class="math notranslate nohighlight">
+      \(k\)
+     </span>
+     from Grain Size Distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#void-ratio">
+     Void Ratio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#water-content">
+     Water Content
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#saturation">
+     Saturation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specific-yield-pp-83-86">
+   Specific Yield (pp. 83-86)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hydraulic-conductivity-pp-86-95">
+   Hydraulic Conductivity (pp. 86-95)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#darcy-s-law">
+     Darcy’s Law
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intrinsic-permeability">
+     Intrinsic Permeability
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-hydraulic-conductivity">
+   Measuring Hydraulic Conductivity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#constant-head-permeameter">
+     Constant Head Permeameter
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#falling-head-permeameter">
+     Falling Head Permeameter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="aquifer-properties-i-pp-66-93">
+<h1>Aquifer Properties - I (pp. 66-93)<a class="headerlink" href="#aquifer-properties-i-pp-66-93" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="density-and-specific-weight">
+<h2>Density and Specific Weight<a class="headerlink" href="#density-and-specific-weight" title="Permalink to this headline">¶</a></h2>
+<p>Usual definition:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho = \frac{\text{mass}}{\text{volume}} = \frac{m}{V}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma = \rho g\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="pressure">
+<h2>Pressure<a class="headerlink" href="#pressure" title="Permalink to this headline">¶</a></h2>
+<p>Usual definition:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p = \frac{\text{Force}}{\text{Area}}\)</span> atmospheric, hydrostatic, absolute, gage</p></li>
+<li><p>Pressure is a normal stress; the concept of effective stress could be interpreted as solids pressure (the force per unit area of the solid phase in porous material)</p></li>
+</ul>
+</div>
+<div class="section" id="viscosity">
+<h2>Viscosity<a class="headerlink" href="#viscosity" title="Permalink to this headline">¶</a></h2>
+<p>“… a property of a fluid that relates the resistance to motion (in a thin layer) when a shear force is applied…”</p>
+<p>Consider a steel sheet that we cut with a shear (like sicssors), if we want to cut fast we need a lot of force; using the same shears on an equal thickness of plastic sheet will take less force for the same rate of cut.  This solids analog to viscosity conveys that steel is more viscous than plastic (usually).</p>
+<div class="figure align-default" id="viscosity-one">
+<a class="reference internal image-reference" href="../../_images/viscosity-one.png"><img alt="../../_images/viscosity-one.png" src="../../_images/viscosity-one.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Viscosity Schematic</span><a class="headerlink" href="#viscosity-one" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#viscosity-one"><span class="std std-numref">Fig. 1</span></a> Is a diagram attempting to convey the concept of viscosity.  In the drawing the thickness <span class="math notranslate nohighlight">\(\partial y\)</span> and the deformation angle <span class="math notranslate nohighlight">\(\partial \alpha\)</span> are small, and the sine of the angle is approximated by the angle itself.</p>
+<div class="figure align-default" id="viscosity-two">
+<a class="reference internal image-reference" href="../../_images/viscosity-two.png"><img alt="../../_images/viscosity-two.png" src="../../_images/viscosity-two.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Viscosity Trigonometry</span><a class="headerlink" href="#viscosity-two" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#viscosity-two"><span class="std std-numref">Fig. 2</span></a> shows the relevant trigonometry to relate deformation rate to shear stress.</p>
+<div class="section" id="absolute-viscosity">
+<h3>Absolute Viscosity<a class="headerlink" href="#absolute-viscosity" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="newtonian">
+<a class="reference internal image-reference" href="../../_images/newtonian.png"><img alt="../../_images/newtonian.png" src="../../_images/newtonian.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Absolute viscosity (definition)</span><a class="headerlink" href="#newtonian" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#newtonian"><span class="std std-numref">Fig. 3</span></a> defines a Newtonian fluid and introduces the absolute viscosity <span class="math notranslate nohighlight">\(\mu\)</span> in terms of the thin layer, cross-layer velocity profile <span class="math notranslate nohighlight">\(\frac{du}{dy}\)</span> and the applied shear stress <span class="math notranslate nohighlight">\(\tau\)</span>.  The viscosity has dimensions of <span class="math notranslate nohighlight">\(\frac{Force \cdot Time}{Area}\)</span></p>
+</div>
+<div class="section" id="apparent-viscosity">
+<h3>Apparent Viscosity<a class="headerlink" href="#apparent-viscosity" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="non-newtonian">
+<a class="reference internal image-reference" href="../../_images/non-newtonian.png"><img alt="../../_images/non-newtonian.png" src="../../_images/non-newtonian.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Apparent viscosity (definition) power-law model</span><a class="headerlink" href="#non-newtonian" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#non-newtonian"><span class="std std-numref">Fig. 4</span></a> shows a typical power-law model of viscosity; the term is referred to as an apparent viscosity.  Many real fluids are Non-Newtonian and will have some type of viscosity model to explain the deformation behavior.</p>
+</div>
+<div class="section" id="kinematic-viscosity">
+<h3>Kinematic Viscosity<a class="headerlink" href="#kinematic-viscosity" title="Permalink to this headline">¶</a></h3>
+<p>The ratio of absolute (or apparent) viscosity to the fluid density is called the <em>kinematic</em> viscosity. The usual symbol is <span class="math notranslate nohighlight">\(\nu = \frac{\mu}{\rho}\)</span>  The kinematic viscosity has dimensions of <span class="math notranslate nohighlight">\(\frac{Area}{Time}\)</span></p>
+</div>
+<div class="section" id="general-comments">
+<h3>General Comments<a class="headerlink" href="#general-comments" title="Permalink to this headline">¶</a></h3>
+<p>Viscous effects cause a velocity gradient (profile) to develop across the fluid layers as shown in <a class="reference internal" href="#slip-profile"><span class="std std-numref">Fig. 5</span></a>.</p>
+<div class="figure align-default" id="slip-profile">
+<a class="reference internal image-reference" href="../../_images/slip-profile.png"><img alt="../../_images/slip-profile.png" src="../../_images/slip-profile.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Velocity Profile Diagram</span><a class="headerlink" href="#slip-profile" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#slip-profile"><span class="std std-numref">Fig. 5</span></a> is a diagram of the cross-layer velocity profile. The slope of the profile is related to shear force and hence the apparent or absolute viscosity.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The no-slip condition is deduced from experiments - it is an assumption that velocity vanishes at the contact interface; it is quite possible that slip occurs at some scale, however it is a useful and accepted boundary condition.</p>
+</div>
+<p>Viscosity plays a role in groundwater hydraulics principially in the permeability or hydraulic conductivity.  Typical symbols are:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mu\)</span> absolute (dynamic) viscosity (see above)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\nu = \frac{\mu}{\rho}\)</span> kinematic viscosity</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="bulk-modulus">
+<h2>Bulk Modulus<a class="headerlink" href="#bulk-modulus" title="Permalink to this headline">¶</a></h2>
+<p>Bulk modulus is the reciprocal of the compressibility of a body.</p>
+<p>A typical symbol is <span class="math notranslate nohighlight">\(K_B\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K_B = \frac{\Delta p}{\Delta \rho/\rho} = \frac{\Delta p}{\Delta V/V}\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="materials">
+<h2>Materials<a class="headerlink" href="#materials" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Rock</p></li>
+<li><p>Grains</p></li>
+<li><p>Sediment</p></li>
+</ul>
+<p>All deposited by wind, water, ice, grabity to form porous media, liquids in the void (non-solid phase) space.</p>
+<div class="figure align-default" id="porousmedia">
+<a class="reference internal image-reference" href="../../_images/porousmedia.png"><img alt="../../_images/porousmedia.png" src="../../_images/porousmedia.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Porous media from sediments (spheres) and fractured rock.</span><a class="headerlink" href="#porousmedia" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="porosity-pp-74-75">
+<h2>Porosity (pp. 74-75)<a class="headerlink" href="#porosity-pp-74-75" title="Permalink to this headline">¶</a></h2>
+<p>The porosity of a specimen of porous material is the ratio of open pore space volume in the specimen to the bulk volume of the specimen.</p>
+<div class="figure align-default" id="porosity">
+<a class="reference internal image-reference" href="../../_images/porosity.png"><img alt="../../_images/porosity.png" src="../../_images/porosity.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Porosity of a sample</span><a class="headerlink" href="#porosity" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n=\frac{V_{void}}{V_{bulk}} \times 100 \%\)</span>  Expressed as percent or decimal (<span class="math notranslate nohighlight">\(n=0. \dots\)</span>)</p></li>
+</ul>
+<div class="figure align-default" id="deadendpore">
+<a class="reference internal image-reference" href="../../_images/deadendpore.png"><img alt="../../_images/deadendpore.png" src="../../_images/deadendpore.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Dead-end pore attached to interconnected pore space.</span><a class="headerlink" href="#deadendpore" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n_e\)</span> is the effective porosity.  In groundwater studies one is normally interested in the interconnected, or effective, porosity, which is the ratio of the volume of interconnected pore space - excluding completely isolated pores - to the bulk volume. In most work, the term “porosity” usually refers to the interconnected or effective porosity.</p></li>
+</ul>
+<p>For porous materials the unit volume is comprised of both solid phase and void phase.  Density can thus be distinguished as bulk density and solids density.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho_b = \frac{m_{dry}}{V_{bulk}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho_s = \frac{m_{dry}}{V_{solids}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho_b = (1-n)\rho_s\)</span></p></li>
+</ul>
+<div class="section" id="measuring-porosity">
+<h3>Measuring Porosity<a class="headerlink" href="#measuring-porosity" title="Permalink to this headline">¶</a></h3>
+<p>Usually gravimetric</p>
+<p><img alt="" src="../../_images/gravimetricporosity.png" /></p>
+<p>other methods include:</p>
+<ul class="simple">
+<li><p>Calibrated neutron backscatter</p></li>
+<li><p>Calibrated acoustic propogation</p></li>
+<li><p>Calibrated resistivity</p></li>
+<li><p>The Brunauer, Emmett and Teller (BET) technique is the most common method for determining the surface area of powders and porous materials. (Gas absorption technique)</p></li>
+<li><p>Karl Fischer titration (a water specific reaction, commonly used in food science).</p></li>
+</ul>
+<p>Typical geologic materials (pp. 80-83):</p>
+<p><img alt="" src="../../_images/porositygeologic.png" /></p>
+</div>
+<div class="section" id="measuring-solids-density">
+<h3>Measuring Solids Density<a class="headerlink" href="#measuring-solids-density" title="Permalink to this headline">¶</a></h3>
+<p>Typically a 50-ml weighting bottle is cleaned and dried, then its mass determined on an analytical balance (<span class="math notranslate nohighlight">\(m_b\)</span>). The bottle filled to the 50-ml mark using a wetting liquid of known density (<span class="math notranslate nohighlight">\(\rho_1\)</span>).  The mass of bottle and liquid is again measured (<span class="math notranslate nohighlight">\(m_1\)</span>)</p>
+<p>The liquid is decanted out, set aside, and again clean and dry the bottle.  A sample of solids (at least 3 grams) is weighed (<span class="math notranslate nohighlight">\(m_s\)</span>) then added to the bottle.  The bottle is weighed again to account for any losses during the transfer (<span class="math notranslate nohighlight">\(m_2\)</span>).  The liquid is slowly added to the bottle to the 50-ml mark, and again the bottle is weighed (<span class="math notranslate nohighlight">\(m_3\)</span>).</p>
+<p>Then through the miracle of arithmetic the solids density is</p>
+<div class="math notranslate nohighlight">
+\[\rho_s = \rho_l \frac{m_2-m_b}{m_1+(m_2-m_b)-m_3}\]</div>
+<p>An example is pictured below</p>
+<p><img alt="" src="../../_images/kenaf.png" /></p>
+<p>The liquid for the measurement should be relatively non-toxic, inert with respect to the solids, and capable of penetrating the pores in the solids (i.e. a wetting fluid with respect to the solids)</p>
+<p>For hydrophobic solids, heptane, ethanol, acetone, octanol, and other organic liquids are suitable (need to make measurements quickly as these tend to be pretty volatile).  For hydrophyillic solids, deionized water is suitable.  Once the solids density is known the bulk density is determined by taking a known volume of solids, drying it, and weighing the dired sample.  The weight divided by the apparent volume is the bulk density.</p>
+<p>Typical geologic material densities:</p>
+<p><img alt="" src="../../_images/densitygeologic.png" /></p>
+</div>
+</div>
+<div class="section" id="sediment-packing-pp-75-76">
+<h2>Sediment Packing (pp. 75-76)<a class="headerlink" href="#sediment-packing-pp-75-76" title="Permalink to this headline">¶</a></h2>
+<p>Porosity can be calculated for uniform spheres in different packing structures (Face-centered cubic; body-centered cubic; hexagonal close-packed; …).  Porosity ranges from 25% to nearly 50% for different cubic structures.  Any chemistry book will discuss cubic packing and unit cells.</p>
+<p>If there is a mixture of sizes porosity can decrease as smaller sizes infill the porse space made available by the larger sizes</p>
+</div>
+<div class="section" id="sediment-classification">
+<h2>Sediment Classification<a class="headerlink" href="#sediment-classification" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Size Classification (pg. 77)</p></li>
+<li><p>phi-Index (pg. 77)</p></li>
+<li><p>ASTM Textural Description (pg. 78)</p></li>
+<li><p>SCS Textural Description</p></li>
+</ul>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/wetsieving.png" /></p>
+<p><img alt="" src="../../_images/screening.png" /></p>
+<p>Uniformity coefficient measures how well sorted (single size) or poorly sorted (many sizes) the sample may be</p>
+<div class="math notranslate nohighlight">
+\[ C_u = \frac{d_{60}}{d_{10}} \]</div>
+</div>
+<div class="section" id="uses">
+<h3>Uses<a class="headerlink" href="#uses" title="Permalink to this headline">¶</a></h3>
+<p>Grain size distributions are useful to estimate permeability in spherical grained porous media</p>
+<p><img alt="" src="../../_images/Kdistributions.png" /></p>
+<ul class="simple">
+<li><p>Kozeny-Carman (for sands)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[k = \frac{n^3}{5S_0^2(1-n)^2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is intrinsic permeability, <span class="math notranslate nohighlight">\(S_0\)</span> is specific surface, and <span class="math notranslate nohighlight">\(n\)</span> is the porosity.</p>
+<ul class="simple">
+<li><p>Similar formula based on mean grain diameter</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[k = \frac{d_{50}^2}{180} \frac{n^3}{(1-n)^2}\]</div>
+<p>Once the intrinsic permeability is determined the hydraulic conductivtiy is recovered from</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{k \rho g}{\mu}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No one in their right mind trusts these correlations, but sometimes they can be a useful starting point when no other approach is available.</p>
+</div>
+</div>
+<div class="section" id="example-estimiting-k-from-grain-size-distribution">
+<h3>Example: Estimiting <span class="math notranslate nohighlight">\(k\)</span> from Grain Size Distribution<a class="headerlink" href="#example-estimiting-k-from-grain-size-distribution" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/examplegrainsize.png" /></p>
+<p>The formula above needs <span class="math notranslate nohighlight">\(d_{50}\)</span> and <span class="math notranslate nohighlight">\(n\)</span></p>
+<p><span class="math notranslate nohighlight">\(d_{50}\)</span> graphically:</p>
+<p><img alt="" src="../../_images/grainsizeplot.png" /></p>
+<p>Or using <span class="math notranslate nohighlight">\(\phi\)</span>-index, where <span class="math notranslate nohighlight">\(\phi = -log_2(d)\)</span></p>
+<p><img alt="" src="../../_images/phi-index.png" /></p>
+<p><img alt="" src="../../_images/phi-index2.png" /></p>
+<p><img alt="" src="../../_images/phi-index3.png" /></p>
+</div>
+<div class="section" id="void-ratio">
+<h3>Void Ratio<a class="headerlink" href="#void-ratio" title="Permalink to this headline">¶</a></h3>
+<p>The ratio of void volume to solid volume is called the void ratio.</p>
+<div class="math notranslate nohighlight">
+\[ e = \frac{V_{voids}}{V_{solids}} \]</div>
+<p>Really useful with deformable materials</p>
+</div>
+<div class="section" id="water-content">
+<h3>Water Content<a class="headerlink" href="#water-content" title="Permalink to this headline">¶</a></h3>
+<p>The volume fraction of water in a sample is called the moisture content or volumetric water content.</p>
+<div class="math notranslate nohighlight">
+\[ \Theta_{w} = \frac{V_{water}}{V_{bulk}}\]</div>
+<p>The moisture content plays a crucial role in the flow of water in partially saturated media.</p>
+</div>
+<div class="section" id="saturation">
+<h3>Saturation<a class="headerlink" href="#saturation" title="Permalink to this headline">¶</a></h3>
+<p>The fraction of pore space occupied by water in a sample is called the volumetric water saturation or the saturation ratio.</p>
+<div class="math notranslate nohighlight">
+\[S_{w} = \frac{V_{water}}{V_{voids}}\]</div>
+<p>The saturation plays a crucial role in the flow of water in partially saturated media.</p>
+</div>
+</div>
+<div class="section" id="specific-yield-pp-83-86">
+<h2>Specific Yield (pp. 83-86)<a class="headerlink" href="#specific-yield-pp-83-86" title="Permalink to this headline">¶</a></h2>
+<p>The specific yield <span class="math notranslate nohighlight">\(S_y\)</span> is the ratio of the volume of water that drains by gravity to total volume of a sample.  The specific retention <span class="math notranslate nohighlight">\(S_r\)</span> is the amount left behind.</p>
+<p>The two sum to the porosity</p>
+<div class="math notranslate nohighlight">
+\[n = S_y + S_r\]</div>
+<p><img alt="" src="../../_images/specificyield.png" /></p>
+</div>
+<div class="section" id="hydraulic-conductivity-pp-86-95">
+<h2>Hydraulic Conductivity (pp. 86-95)<a class="headerlink" href="#hydraulic-conductivity-pp-86-95" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="darcy-s-law">
+<h3>Darcy’s Law<a class="headerlink" href="#darcy-s-law" title="Permalink to this headline">¶</a></h3>
+<p><img alt="" src="../../_images/darcylaw1.png" />
+<img alt="" src="../../_images/darcylaw2.png" />
+<img alt="" src="../../_images/darcylaw3.png" /></p>
+</div>
+<div class="section" id="intrinsic-permeability">
+<h3>Intrinsic Permeability<a class="headerlink" href="#intrinsic-permeability" title="Permalink to this headline">¶</a></h3>
+<p>A measure of the relative ease with which a porous medium can transmit a fluid under a potential gradient and is a property of the medium alone.</p>
+<p><a class="reference external" href="https://pubs.usgs.gov/wsp/wsp_1988/">Drescher, W.J.,Jr., Ferris, J.G., Johnson, A.I., McGuinness, C.L., Piper, A.M., Rorabaugh, M.I., Stallman, R.W., and Theis, C.V., 1972, Definitions of selected ground-water terms—Revisions and conceptual refinements: U.S. Geological Survey Water-Supply Paper 1988.</a></p>
+<p>Hydraulic conductivity, much like friction factors in pipe flow is comprised of media properties (pore diameter and roughness height) and fluid properties (viscosity and Reynolds number) as:</p>
+<div class="math notranslate nohighlight">
+\[K = \frac{k \rho g}{\mu}\]</div>
+<p>A common correlation is</p>
+<div class="math notranslate nohighlight">
+\[K = C(d_{10})^2\]</div>
+<p>with <span class="math notranslate nohighlight">\(C\)</span> being a Hazen coefficient (Some values tabulated on pg. 91).<br />
+Same Hazen as in Hazen-Williams head loss equation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above formulation is actually an expression of the Hagen–Poiseuille equation for viscous flow in a conduit, where the conduit dimension is the <span class="math notranslate nohighlight">\(d_{10}\)</span> value.  But lets just stick to magic and not worry about the underlying mechanics, we cannot easily measure the the por geometry anyway.</p>
+</div>
+<p>Other correlations were already presented above as</p>
+<ul class="simple">
+<li><p>Kozeny-Carman (for sands)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[k = \frac{n^3}{5S_0^2(1-n)^2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is intrinsic permeability, <span class="math notranslate nohighlight">\(S_0\)</span> is specific surface, and <span class="math notranslate nohighlight">\(n\)</span> is the porosity.  Specific surface would be obtained by BET adsorbtion isotherm (see porosity above)</p>
+<ul class="simple">
+<li><p>A similar relationship (Bear, 1972)</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[k = \frac{d_{50}^2}{180} \frac{n^3}{(1-n)^2}\]</div>
+<p><span class="math notranslate nohighlight">\(K\)</span> ranges over 10 orders of magnitude depending on surface ares, packing, grain size, and porosity type (fractures, or deposition)</p>
+<!-- ![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Groundwater_Freeze_and_Cherry_1979_Table_2-2.png/220px-Groundwater_Freeze_and_Cherry_1979_Table_2-2.png) -->
+<div class="figure align-default" id="hydktable">
+<a class="reference internal image-reference" href="../../_images/HydraulicKChart.png"><img alt="../../_images/HydraulicKChart.png" src="../../_images/HydraulicKChart.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Hydraulic Conductivity Table from Freeze and Cherry (1979) (sourced from Wikipedia)</span><a class="headerlink" href="#hydktable" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="measuring-hydraulic-conductivity">
+<h2>Measuring Hydraulic Conductivity<a class="headerlink" href="#measuring-hydraulic-conductivity" title="Permalink to this headline">¶</a></h2>
+<p>In lab using devices called permeameters.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A triaxial permeameter accomplishes the same tasks, but attempts to replicate in-situ loads on the sample</p>
+</div>
+<div class="section" id="constant-head-permeameter">
+<h3>Constant Head Permeameter<a class="headerlink" href="#constant-head-permeameter" title="Permalink to this headline">¶</a></h3>
+<p>The constant head permeameter is simply a device that exactly duplicates Darcy’s original experiment. A sample is placed in the permeameter and constant head gradient is maintained across the sample. The hydraulic conductivity is inferred by direct application of Darcy’s Law.</p>
+<div class="figure align-default" id="chpermeameter">
+<a class="reference internal image-reference" href="../../_images/CHPermeameter.png"><img alt="../../_images/CHPermeameter.png" src="../../_images/CHPermeameter.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Constant head permeameter schematic</span><a class="headerlink" href="#chpermeameter" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#chpermeameter"><span class="std std-numref">Fig. 10</span></a> is a schematic diagram of a constant head permeameter. A sample of porous medium is placed the device. The length of the sample is L, the cross sectional area of the sample is A. The head is measured at the inlet and outlet of the sample. h1 is the head at the inlet of the sample as measured from the outlet of the sample. h2 is the head at the outlet of the sample. Q is the rate of flow through the sample measured by recording the time required for a known volume of water to pass through the sample.</p>
+<p>Darcy’s law for this experiment is</p>
+<div class="math notranslate nohighlight">
+\[Q=KA\frac{h_1−h_2}{L}\]</div>
+<p>Rearranging this equation gives the following formula for hydraulic conductivity;</p>
+<div class="math notranslate nohighlight">
+\[ K=\frac{Q}{A} \frac{L}{h_1−h_2}\]</div>
+<p>These computations can be conviently entered into a spreadsheet program. <a class="reference external" href="http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/03aquiferproperties/MODEL2_CHPerm.xls">MODEL2_CHPerm.xls</a> is a spreadsheet program that implements these equations for a constant head permeameter.</p>
+<div class="figure align-default" id="chpspreadsheet">
+<a class="reference internal image-reference" href="../../_images/CHPspreadsheet.png"><img alt="../../_images/CHPspreadsheet.png" src="../../_images/CHPspreadsheet.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Constant head permeameter analysis spreadsheet</span><a class="headerlink" href="#chpspreadsheet" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#chpspreadsheet"><span class="std std-numref">Fig. 11</span></a> is an annotated image of the spreadsheet showing where to enter data to estimate hydraulic conductivity.
+To use the program the data is entered for a particular analysis. If intrinsic permeability is to be calculated then the density and viscosity of water should be determined from a tabulation and entered into the spreadsheet.</p>
+</div>
+<div class="section" id="falling-head-permeameter">
+<h3>Falling Head Permeameter<a class="headerlink" href="#falling-head-permeameter" title="Permalink to this headline">¶</a></h3>
+<p>The falling head permeameter is used when the hydraulic conductivity of the porous material is small. In this case the constant head permeameter cannot easily generate a high enough gradient to produce measurable flow in a reasonable amount of time.</p>
+<div class="figure align-default" id="fhpermeameter">
+<a class="reference internal image-reference" href="../../_images/FHPermeameter.png"><img alt="../../_images/FHPermeameter.png" src="../../_images/FHPermeameter.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Falling head permeameter schematic</span><a class="headerlink" href="#fhpermeameter" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fhpermeameter"><span class="std std-numref">Fig. 12</span></a>is a schematic diagram of a falling head permeameter. A sample of porous medium is placed the device. The length of the sample is L, the cross sectional area of the sample is A. A smaller area tube rises above the sample. This tube provides the driving force required to move water through the porous sample with reasonably small water volume. The area of this tube is a. The head is measured at the inlet of the sample as the height of water in the tube above the sample, h(t). Q(t) is the varying rate of flow through the sample.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In a falling head permeameter, both the head and the flow rate vary with time.</p>
+</div>
+<p>The analysis is a bit more complicated</p>
+<p><img alt="" src="../../_images/FHanalysis1.png" /></p>
+<p><img alt="" src="../../_images/FHanalysis2.png" /></p>
+<p><a class="reference external" href="http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/03aquiferproperties/MODEL3_FHPerm.xls">MODEL3_FHPerm.xls</a> is a spreadsheet program that implements the falling head equations.</p>
+<div class="figure align-default" id="fhpspreadsheet">
+<a class="reference internal image-reference" href="../../_images/FHPspreadsheet.png"><img alt="../../_images/FHPspreadsheet.png" src="../../_images/FHPspreadsheet.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Falling head permeameter analysis spreadsheet</span><a class="headerlink" href="#fhpspreadsheet" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#fhpspreadsheet"><span class="std std-numref">Fig. 13</span></a> is an annotated image of the spreadsheet showing where to enter data to estimate hydraulic conductivity.
+To use the program the data is entered for a particular analysis. If intrinsic permeability is to be calculated then the density and viscosity of water should be determined from a tabulation and entered into the spreadsheet.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Viscosity">Viscosity</a></p></li>
+<li><p><a class="reference external" href="https://www.sciencedirect.com/topics/engineering/bulk-modulus">Bulk Modulus</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/about-me-webroot/about-me/MyWebPapers/journal_papers/kenaf_filteraid_jsst_1998/kenaf_filteraid_jsst_1998.pdf">Varghese, B.K, and T.G. Cleveland, 1998. <em>Kenaf as a Deep Bed Filter Medium to Remove Oil from Oil-in-Water Emulsions</em>, Journal of Separation Science and Technology, 33 (14), pp. 2197-2220.</a></p></li>
+<li><p><a class="reference external" href="http://54.243.252.9/about-me-webroot/about-me/MyWebPapers/journal_papers/fullerene_sorbent_asce_1996/fullerene_sorbent_asce_1996.pdf">Cleveland, T.G. , S. Garg, and W. Rixey 1996. <em>Feasibility of Fullerene Waste as a Carbonaceous Adsorbent</em>, Journal of Environmental Engineering, American Society of Civil Engineers, Vol. 122, No. 3, pp 235-238.</a></p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./lessons/03aquiferproperties"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../02water/02water.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Water (Fetter pp. 1-23)</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../04aquiferproperties/04aquiferproperties.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Aquifer Properties - II (pp. 93-109)</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
