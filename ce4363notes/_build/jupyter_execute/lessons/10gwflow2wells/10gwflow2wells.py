@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Groundwater Flow to Wells - III
-# 
-# ## Image Wells
+# # Groundwater Flow to Wells - III (pp. 172-212)
 # 
 # ## Aquifer Pumping Tests
 # 
