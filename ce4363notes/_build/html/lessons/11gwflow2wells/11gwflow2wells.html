@@ -418,20 +418,31 @@
 
 <span class="n">tt</span><span class="o">=</span><span class="mf">30.0</span>
 <span class="n">data</span> <span class="o">=</span> \
-<span class="p">[[</span><span class="n">tt</span><span class="p">,</span><span class="mi">50</span><span class="p">],</span>
-<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">150</span><span class="p">],</span>
-<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">250</span><span class="p">],</span>
-<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">500</span><span class="p">],</span>
-<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">1000</span><span class="p">],</span>
-<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">3000</span><span class="p">],</span>
-<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">6000</span><span class="p">],</span>
-<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">10000</span><span class="p">]]</span>
+<span class="p">[[</span><span class="n">tt</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">50</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">100</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">200</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">300</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">600</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">900</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">1200</span><span class="p">]]</span>
+
+<span class="n">modata</span> <span class="o">=</span> \
+<span class="p">[[</span><span class="n">tt</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">50</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">100</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">200</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">300</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">600</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">900</span><span class="p">],</span>
+<span class="p">[</span><span class="n">tt</span> <span class="p">,</span><span class="mi">1200</span><span class="p">]]</span>
 
 <span class="n">S</span> <span class="o">=</span> <span class="mf">0.0005</span> <span class="c1"># given</span>
 <span class="n">T</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1">#m^2/day given</span>
 <span class="n">Q</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#m^3/d given</span>
 
 <span class="n">ddn</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))]</span>
+<span class="n">image</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))]</span>
 <span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))]</span>
 <span class="n">distance</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time(days)|Radius(m)|Drawdown(m)|&quot;</span><span class="p">)</span>
@@ -445,8 +456,8 @@
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="n">mydata</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span> <span class="c1"># build a drawing canvass from figure class; aspect ratio 4x3</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">ddn</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># basic line plot</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span> <span class="c1"># set x-axis to display a logarithmic scale #################</span>
+<span class="c1">#plt.invert_yaxis()</span>
+<span class="c1">#plt.xscale(&#39;log&#39;) # set x-axis to display a logarithmic scale #################</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance (m)&#39;</span><span class="p">)</span> <span class="c1"># label the x-axis</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Drawdown (m)&#39;</span><span class="p">)</span> <span class="c1"># label the y-axis, notice the LaTex markup</span>
 <span class="c1">#plt.legend([&#39;series1&#39;,&#39;series2...&#39;]) # legend for each series</span>
@@ -457,32 +468,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time(days)|Radius(m)|Drawdown(m)|
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-3-76fe8ce707b9&gt;&quot;</span><span class="gt">, line </span><span class="mi">38</span>
+    <span class="n">image</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))]</span>
+             <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        30|        50|       31.81|
-        30|       150|       14.97|
-        30|       250|        8.06|
-        30|       500|        1.63|
-        30|      1000|        0.02|
-        30|      3000|        0.00|
-        30|      6000|        0.00|
-        30|     10000|        0.00|
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">89</span><span class="n">ee3203d8da</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="n">mydata</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span> <span class="c1"># build a drawing canvass from figure class; aspect ratio 4x3</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">ddn</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># basic line plot</span>
-<span class="ne">---&gt; </span><span class="mi">41</span> <span class="n">plt</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span> <span class="c1"># set x-axis to display a logarithmic scale #################</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Distance (m)&#39;</span><span class="p">)</span> <span class="c1"># label the x-axis</span>
-
-<span class="ne">AttributeError</span>: module &#39;matplotlib.pyplot&#39; has no attribute &#39;invert_yaxis&#39;
-</pre></div>
-</div>
-<img alt="../../_images/11gwflow2wells_3_3.png" src="../../_images/11gwflow2wells_3_3.png" />
 </div>
 </div>
 </div>

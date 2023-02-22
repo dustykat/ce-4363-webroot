@@ -59,20 +59,30 @@ def s(radius,time,storage,transmissivity,discharge): # Drawdown function using e
     return(s)
 
 tt=30.0
-data = [[tt,50],
-[tt ,150],
-[tt ,250],
-[tt ,500],
-[tt ,1000],
-[tt ,3000],
-[tt ,6000],
-[tt ,10000]]
+data = [[tt,5],
+[tt ,50],
+[tt ,100],
+[tt ,200],
+[tt ,300],
+[tt ,600],
+[tt ,900],
+[tt ,1200]]
+
+modata = [[tt,5],
+[tt ,50],
+[tt ,100],
+[tt ,200],
+[tt ,300],
+[tt ,600],
+[tt ,900],
+[tt ,1200]]
 
 S = 0.0005 # given
 T = 1.0 #m^2/day given
 Q = 100 #m^3/d given
 
 ddn = [0 for i in range(len(data))]
+image [0 for i in range(len(data))]
 time = [0 for i in range(len(data))]
 distance = [0 for i in range(len(data))]
 print("Time(days)|Radius(m)|Drawdown(m)|")
@@ -86,8 +96,8 @@ for irow in range(len(data)):
 from matplotlib import pyplot as plt
 mydata = plt.figure(figsize = (8,6)) # build a drawing canvass from figure class; aspect ratio 4x3
 plt.plot(distance, ddn, c='red', marker='o',linewidth=1) # basic line plot
-plt.invert_yaxis()
-plt.xscale('log') # set x-axis to display a logarithmic scale #################
+#plt.invert_yaxis()
+#plt.xscale('log') # set x-axis to display a logarithmic scale #################
 plt.xlabel('Distance (m)') # label the x-axis
 plt.ylabel('Drawdown (m)') # label the y-axis, notice the LaTex markup
 #plt.legend(['series1','series2...']) # legend for each series
