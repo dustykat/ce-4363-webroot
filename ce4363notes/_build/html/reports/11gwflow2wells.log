@@ -1,0 +1,81 @@
+Traceback (most recent call last):
+  File "/opt/jupyterhub/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/jupyterhub/lib/python3.8/site-packages/nbclient/client.py", line 1087, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/jupyterhub/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/jupyterhub/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/opt/jupyterhub/lib/python3.8/site-packages/nbclient/client.py", line 540, in async_execute
+    await self.async_execute_cell(
+  File "/opt/jupyterhub/lib/python3.8/site-packages/nbclient/client.py", line 832, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/jupyterhub/lib/python3.8/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def W(u): # Theis well function using exponential integral
+    import scipy.special as sc
+    w = sc.expn(1,u)
+    return(w)
+
+def s(radius,time,storage,transmissivity,discharge): # Drawdown function using exponential integral
+    import math
+    u = ((radius**2)*(storage))/(4*transmissivity*time)
+    s = ((discharge)/(4*math.pi*transmissivity))*W(u)
+    return(s)
+
+tt=30.0
+data = \
+[[tt,50],
+[tt ,150],
+[tt ,250],
+[tt ,500],
+[tt ,1000],
+[tt ,3000],
+[tt ,6000],
+[tt ,10000]]
+
+S = 0.0005 # given
+T = 1.0 #m^2/day given
+Q = 100 #m^3/d given
+
+ddn = [0 for i in range(len(data))]
+time = [0 for i in range(len(data))]
+distance = [0 for i in range(len(data))]
+print("Time(days)|Radius(m)|Drawdown(m)|")
+for irow in range(len(data)):
+    time[irow]=data[irow][0]
+    distance[irow]=data[irow][1]
+    ddn[irow] = s(distance[irow],time[irow],S,T,Q)
+    print("%10i|%10i|%12.2f|"%(time[irow],distance[irow],round(ddn[irow],2)))
+
+# import the package
+from matplotlib import pyplot as plt
+mydata = plt.figure(figsize = (8,6)) # build a drawing canvass from figure class; aspect ratio 4x3
+plt.plot(distance, ddn, c='red', marker='o',linewidth=1) # basic line plot
+plt.invert_yaxis()
+plt.xscale('log') # set x-axis to display a logarithmic scale #################
+plt.xlabel('Distance (m)') # label the x-axis
+plt.ylabel('Drawdown (m)') # label the y-axis, notice the LaTex markup
+#plt.legend(['series1','series2...']) # legend for each series
+plt.title('Drawdown vs Distance') # make a plot title
+plt.grid() # display a grid
+plt.show() # display the plot
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+[0;32m<ipython-input-3-89ee3203d8da>[0m in [0;36m<module>[0;34m[0m
+[1;32m     39[0m [0mmydata[0m [0;34m=[0m [0mplt[0m[0;34m.[0m[0mfigure[0m[0;34m([0m[0mfigsize[0m [0;34m=[0m [0;34m([0m[0;36m8[0m[0;34m,[0m[0;36m6[0m[0;34m)[0m[0;34m)[0m [0;31m# build a drawing canvass from figure class; aspect ratio 4x3[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     40[0m [0mplt[0m[0;34m.[0m[0mplot[0m[0;34m([0m[0mdistance[0m[0;34m,[0m [0mddn[0m[0;34m,[0m [0mc[0m[0;34m=[0m[0;34m'red'[0m[0;34m,[0m [0mmarker[0m[0;34m=[0m[0;34m'o'[0m[0;34m,[0m[0mlinewidth[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m [0;31m# basic line plot[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 41[0;31m [0mplt[0m[0;34m.[0m[0minvert_yaxis[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     42[0m [0mplt[0m[0;34m.[0m[0mxscale[0m[0;34m([0m[0;34m'log'[0m[0;34m)[0m [0;31m# set x-axis to display a logarithmic scale #################[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     43[0m [0mplt[0m[0;34m.[0m[0mxlabel[0m[0;34m([0m[0;34m'Distance (m)'[0m[0;34m)[0m [0;31m# label the x-axis[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mAttributeError[0m: module 'matplotlib.pyplot' has no attribute 'invert_yaxis'
+AttributeError: module 'matplotlib.pyplot' has no attribute 'invert_yaxis'
+
