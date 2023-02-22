@@ -88,7 +88,7 @@
 # 
 # A functioning web-accessible implementation of MODFLOW88 is available at [54.243.252.9](http://54.243.252.9/toolbox/gwhydraulics/modflow/).  This is the hardest to use in terms of file management and error interpretation, but is reasonably easy to employ if using legacy files and the older documentation.
 # 
-# - **server name** 54.243.252.9/toolbox/gwhydraulics/modflow/
+# - **server name** http://54.243.252.9/toolbox/gwhydraulics/modflow/
 # - **user name** MODFLOW99
 # - **passwort** On-Line
 # 

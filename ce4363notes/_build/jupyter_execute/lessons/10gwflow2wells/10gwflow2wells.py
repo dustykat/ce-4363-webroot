@@ -117,6 +117,11 @@
 # 
 # 4. [Cleveland, T.G., (2001) *Groundwater Hydrology - Lecture 010* Lecture Notes to accompany CE 6361 at the University of Houston](http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/10gwflow2wells/Lecture010.PDF)
 # 
+# 5. [Slug Tests SOP#2046 US. EPA](https://dem.ri.gov/sites/g/files/xkgbur861/files/pubs/sops/wmsr2046.pdf)
+# 
+# 6. [Chirlin G. R. (1989) A Critique of the Hvorslev Method for Slug Test Analysis: The Fully Penetrating Well](
+# https://doi.org/10.1111/j.1745-6592.1989.tb01147.x)
+# 
 # 
 
 # In[ ]:
