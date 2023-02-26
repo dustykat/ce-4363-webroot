@@ -17,8 +17,8 @@ chapters:
 - file: lessons/08gwflow2wells/08gwflow2wells
 - file: lessons/09gwflow2wells/09gwflow2wells
 - file: lessons/10gwflow2wells/10gwflow2wells
-- file: lessons/11gwflow2wells
-- file: lessons/12gwflow2wells
+- file: lessons/11gwflow2wells/11gwflow2wells
+- file: lessons/12gwflow2wells/12gwflow2wells
 - file: lessons/groundwatermodels/13gwmodels
   sections:
   - file: lessons/groundwatermodels/14gwmodels
