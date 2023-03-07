@@ -13215,7 +13215,7 @@ Volume of water = 0.06 cubic meters<br></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[237]:</div>
+<div class="prompt input_prompt">In&nbsp;[276]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">identity</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">]</span> <span class="c1">#given</span>
@@ -13282,7 +13282,7 @@ land surface elevations and depths to water are shown in the table.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[238]:</div>
+<div class="prompt input_prompt">In&nbsp;[277]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
@@ -13400,7 +13400,7 @@ below. <strong>The sketch is not to scale.</strong></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[239]:</div>
+<div class="prompt input_prompt">In&nbsp;[278]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Saturated thickness pre-development</span>
@@ -13445,14 +13445,14 @@ Head in observation well  166  feet above bottom of aquifer
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[240]:</div>
+<div class="prompt input_prompt">In&nbsp;[279]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Theim equation unconfined</span>
 <span class="n">h1</span>   <span class="o">=</span> <span class="mi">120</span> <span class="c1">#calculated</span>
 <span class="n">h2</span>   <span class="o">=</span> <span class="mi">166</span> <span class="c1">#calculated</span>
 <span class="n">r1</span> <span class="o">=</span> <span class="mf">0.60</span> <span class="c1">#given raduis at well screen</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="mi">385</span> <span class="c1">#given distance to observation well</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="mi">85</span> <span class="c1">#given distance to observation well</span>
 <span class="n">QGPM</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1">#given</span>
 <span class="n">QCFS</span> <span class="o">=</span> <span class="n">QGPM</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">7.485</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">60.0</span><span class="p">)</span> <span class="c1">#gpm to cfs</span>
 <span class="n">QCFD</span> <span class="o">=</span> <span class="n">QCFS</span><span class="o">*</span><span class="mi">86400</span> <span class="c1">#cfs to cfday</span>
@@ -13474,7 +13474,7 @@ Head in observation well  166  feet above bottom of aquifer
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hydraulic Conductivity =  6.018  ft/day 
+<pre>Hydraulic Conductivity =  4.611  ft/day 
 </pre>
 </div>
 </div>
@@ -13485,7 +13485,7 @@ Head in observation well  166  feet above bottom of aquifer
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[241]:</div>
+<div class="prompt input_prompt">In&nbsp;[280]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Find effective radius</span>
@@ -13509,7 +13509,7 @@ Head in observation well  166  feet above bottom of aquifer
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Target 192 Guess 192.0 Diffence  -0.0
+<pre>Target 192 Guess 209.081 Diffence  -17.081
 </pre>
 </div>
 </div>
@@ -13549,7 +13549,7 @@ pumping well is shown in the table below.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[242]:</div>
+<div class="prompt input_prompt">In&nbsp;[281]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">W</span><span class="p">(</span><span class="n">u</span><span class="p">):</span> <span class="c1"># Theis well function using exponential integral</span>
@@ -13670,7 +13670,7 @@ Initial Sum Squared Error : 645.106279
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[243]:</div>
+<div class="prompt input_prompt">In&nbsp;[282]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># build an optimizer to automatically find T and S</span>
@@ -13837,7 +13837,7 @@ First copy-paste solution code from notes:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[244]:</div>
+<div class="prompt input_prompt">In&nbsp;[283]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">wh</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">rho</span><span class="p">):</span> <span class="c1"># Hantush Leaky aquifer well function</span>
@@ -13890,7 +13890,7 @@ First copy-paste solution code from notes:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[245]:</div>
+<div class="prompt input_prompt">In&nbsp;[284]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">rAC</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">350</span><span class="o">-</span><span class="mi">150</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># distance well C to well A</span>
@@ -13960,7 +13960,7 @@ First copy-paste solution code from notes:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[246]:</div>
+<div class="prompt input_prompt">In&nbsp;[285]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">L1</span><span class="o">=</span><span class="mi">300</span>
@@ -14022,7 +14022,7 @@ effective radius of 0.50 ft, and pumps at a flow rate of 200 gpm.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[247]:</div>
+<div class="prompt input_prompt">In&nbsp;[286]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">W</span><span class="p">(</span><span class="n">u</span><span class="p">):</span> <span class="c1"># Theis well function using exponential integral</span>
@@ -14044,7 +14044,7 @@ effective radius of 0.50 ft, and pumps at a flow rate of 200 gpm.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[248]:</div>
+<div class="prompt input_prompt">In&nbsp;[287]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># distances relative to pumping well</span>
@@ -14102,7 +14102,7 @@ effective radius of 0.50 ft, and pumps at a flow rate of 200 gpm.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[270]:</div>
+<div class="prompt input_prompt">In&nbsp;[288]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># scripting</span>
