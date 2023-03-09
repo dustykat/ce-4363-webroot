@@ -9,7 +9,7 @@ Many (but not all) underlined/bold items are working hyperlinks to the resource.
 :::
 
 ## Syllabus
-The syllabus is located at [ce-4363-2023-1-syllabus](http://54.243.252.9/ce-4363-webroot/0-Syllabus/ce-4363-2022-3-Syllabus.html).
+The syllabus is located at [ce-4363-2023-1-syllabus](http://54.243.252.9/ce-4363-webroot/0-Syllabus/ce-4363-2023-1-Syllabus.html).
 
 ## Other resources
 Other resources are located in the various parts of the course server; hence the admonition to follow hyperlinks.
