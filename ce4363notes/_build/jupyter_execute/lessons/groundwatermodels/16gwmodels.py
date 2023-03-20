@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Regional Flow 
+# # Regional Flow (pp. 244)
 # 
-# ## Recharge and Discharge Areas
+# ## Recharge and Discharge Areas (pp. 245-251)
 # 
-# ## Flow Patterns in Aquifers
+# ## Flow Patterns in Aquifers (pp. 245-251)
 # 
-# ### Vertical Slices
+# ### Vertical Slices (pp. 245-251)
 # 
-# ### Horizontal Slides
+# ### Horizontal Slides (pp. 245-251)
 # 
-# ## Low Permeability Inclusions
+# ## Low Permeability Inclusions (pp. 251-252)
 # 
 # ## High Permeability Inclusions
 # 
-# ## Heterogenity and Anisotropy
+# ## Heterogenity and Anisotropy (pp. 252-255)
 # 
 # ## References
 # 
