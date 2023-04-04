@@ -94,6 +94,12 @@
 # 
 # A video demonstrating the creation and running of a model using this implementation is available at [YouTube](https://youtu.be/ZxFDEgkOkzU).
 
+# ## MODFLOW Python Interfaces
+# 
+# A way to access MODFLOW using Python and Jupyter Notebooks is avaliable at 
+# 
+# [FloPy: Python Package for Creating, Running, and Post-Processing MODFLOW-Based Models ](https://www.usgs.gov/software/flopy-python-package-creating-running-and-post-processing-modflow-based-models)
+
 # ## References
 # 
 # 1. [Groundwater Modeling Exercise (used in video)](http://54.243.252.9/ce-4363-webroot/3-Readings/Groundwater_modelling_exercise.pdf)
