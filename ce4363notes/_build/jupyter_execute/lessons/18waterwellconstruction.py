@@ -24,5 +24,13 @@
 # 
 # ![](http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/wellcompletion.png)
 # 
-# image
+# ![](http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/alternatewell.png)
 # 
+# ![](http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/wellstandards.png)
+# 
+
+# In[ ]:
+
+
+
+
