@@ -104,6 +104,314 @@
 # 
 # [MODFLOW on a Jupyter Server - notes](http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/groundwatermodels/installing.pdf)
 # 
+# ## Example from above link
+
+# In[1]:
+
+
+# FloPy Example
+import warnings
+warnings.filterwarnings('ignore')
+
+# arm/aarch need to compile mf6 on this chipset
+# copy the result into a directory to house the scripts
+# Run from JupyterBook -using absolute paths
+# Seemed to run OK - now copy this into course notes and run from there
+#
+
+
+# In[2]:
+
+
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+import flopy
+
+
+# In[3]:
+
+
+# Define grid
+name = "example01_mf6"
+h1 = 100
+h2 = 90
+Nlay = 10 #number layers
+#Nrow = 101 #number rows
+#Ncol = 101 #number columns
+N = 101
+L = 400.0 # length of sides
+#Hx =
+#Hy =
+H = 50.0 # aquifer thickness
+k = 1.0 # hydraulic condictivity
+
+sim = flopy.mf6.MFSimulation(
+    sim_name=name, exe_name="/home/sensei/ce-4363-webroot/ModflowExperimental/mf6-arm/mf6", version="mf6", sim_ws="/home/sensei/ce-4363-webroot/ModflowExperimental/mf6-arm/"
+)
+
+
+# In[4]:
+
+
+tdis = flopy.mf6.ModflowTdis(
+    sim, pname="tdis", time_units="DAYS", nper=1, perioddata=[(1.0, 1, 1.0)]
+)
+
+
+# In[5]:
+
+
+ims = flopy.mf6.ModflowIms(sim, pname="ims", complexity="SIMPLE")
+
+
+# In[6]:
+
+
+model_nam_file = "{}.nam".format(name)
+gwf = flopy.mf6.ModflowGwf(sim, modelname=name, model_nam_file=model_nam_file)
+
+
+# In[7]:
+
+
+bot = np.linspace(-H / Nlay, -H, Nlay)
+delrow = delcol = L / (N - 1)
+dis = flopy.mf6.ModflowGwfdis(
+    gwf,
+    nlay=Nlay,
+    nrow=N,
+    ncol=N,
+    delr=delrow,
+    delc=delcol,
+    top=0.0,
+    botm=bot,
+)
+
+
+# In[8]:
+
+
+start = h1 * np.ones((Nlay, N, N))
+ic = flopy.mf6.ModflowGwfic(gwf, pname="ic", strt=start)
+
+
+# In[9]:
+
+
+npf = flopy.mf6.ModflowGwfnpf(gwf, icelltype=1, k=k, save_flows=True)
+
+
+# In[10]:
+
+
+chd_rec = []
+chd_rec.append(((0, int(N / 4), int(N / 4)), h2))
+for layer in range(0, Nlay):
+    for row_col in range(0, N):
+        chd_rec.append(((layer, row_col, 0), h1))
+        chd_rec.append(((layer, row_col, N - 1), h1))
+        if row_col != 0 and row_col != N - 1:
+            chd_rec.append(((layer, 0, row_col), h1))
+            chd_rec.append(((layer, N - 1, row_col), h1))
+chd = flopy.mf6.ModflowGwfchd(
+    gwf,
+    maxbound=len(chd_rec),
+    stress_period_data=chd_rec,
+    save_flows=True,
+)
+
+
+# In[11]:
+
+
+iper = 0
+ra = chd.stress_period_data.get_data(key=iper)
+ra
+
+
+# In[12]:
+
+
+# Create the output control (`OC`) Package
+headfile = "{}.hds".format(name)
+head_filerecord = [headfile]
+budgetfile = "{}.cbb".format(name)
+budget_filerecord = [budgetfile]
+saverecord = [("HEAD", "ALL"), ("BUDGET", "ALL")]
+printrecord = [("HEAD", "LAST")]
+oc = flopy.mf6.ModflowGwfoc(
+    gwf,
+    saverecord=saverecord,
+    head_filerecord=head_filerecord,
+    budget_filerecord=budget_filerecord,
+    printrecord=printrecord,
+)
+
+
+# In[13]:
+
+
+sim.write_simulation()
+
+
+# In[14]:
+
+
+success, buff = sim.run_simulation()
+if not success:
+    raise Exception("MODFLOW 6 did not terminate normally.")
+
+
+# In[15]:
+
+
+# now attempt to postprocess
+h = gwf.output.head().get_data(kstpkper=(0, 0))
+x = y = np.linspace(0, L, N)
+y = y[::-1]
+vmin, vmax = 90.0, 100.0
+contour_intervals = np.arange(90, 100.1, 1.0)
+
+# ### Plot a Map of Layer 1
+
+fig = plt.figure(figsize=(6, 6))
+ax = fig.add_subplot(1, 1, 1, aspect="equal")
+c = ax.contour(x, y, h[0], contour_intervals, colors="black")
+plt.clabel(c, fmt="%2.1f")
+
+
+# In[16]:
+
+
+# ### Plot a Map of Layer 10
+
+x = y = np.linspace(0, L, N)
+y = y[::-1]
+fig = plt.figure(figsize=(6, 6))
+ax = fig.add_subplot(1, 1, 1, aspect="equal")
+c = ax.contour(x, y, h[-1], contour_intervals, colors="black")
+plt.clabel(c, fmt="%1.1f")
+
+
+# In[17]:
+
+
+# ### Plot a Cross-section along row 25
+
+z = np.linspace(-H / Nlay / 2, -H + H / Nlay / 2, Nlay)
+fig = plt.figure(figsize=(9, 3))
+ax = fig.add_subplot(1, 1, 1, aspect="auto")
+c = ax.contour(x, z, h[:, int(N / 4), :], contour_intervals, colors="black")
+plt.clabel(c, fmt="%1.1f")
+
+
+# In[18]:
+
+
+# ### Use the FloPy `PlotMapView()` capabilities for MODFLOW 6
+#
+# ### Plot a Map of heads in Layers 1 and 10
+
+fig, axes = plt.subplots(2, 1, figsize=(6, 12), constrained_layout=True)
+# first subplot
+ax = axes[0]
+ax.set_title("Model Layer 1")
+modelmap = flopy.plot.PlotMapView(model=gwf, ax=ax)
+pa = modelmap.plot_array(h, vmin=vmin, vmax=vmax)
+quadmesh = modelmap.plot_bc("CHD")
+linecollection = modelmap.plot_grid(lw=0.5, color="0.5")
+contours = modelmap.contour_array(
+    h,
+    levels=contour_intervals,
+    colors="black",
+)
+ax.clabel(contours, fmt="%2.1f")
+cb = plt.colorbar(pa, shrink=0.5, ax=ax)
+# second subplot
+ax = axes[1]
+ax.set_title(f"Model Layer {Nlay}")
+modelmap = flopy.plot.PlotMapView(model=gwf, ax=ax, layer=Nlay - 1)
+linecollection = modelmap.plot_grid(lw=0.5, color="0.5")
+pa = modelmap.plot_array(h, vmin=vmin, vmax=vmax)
+quadmesh = modelmap.plot_bc("CHD")
+contours = modelmap.contour_array(
+    h,
+    levels=contour_intervals,
+    colors="black",
+)
+ax.clabel(contours, fmt="%2.1f")
+cb = plt.colorbar(pa, shrink=0.5, ax=ax)
+
+
+# In[19]:
+
+
+# ### Use the FloPy `PlotCrossSection()` capabilities for MODFLOW 6
+#
+# ### Plot a cross-section of heads along row 25
+
+fig, ax = plt.subplots(1, 1, figsize=(9, 3), constrained_layout=True)
+# first subplot
+ax.set_title("Row 25")
+modelmap = flopy.plot.PlotCrossSection(
+    model=gwf,
+    ax=ax,
+    line={"row": int(N / 4)},
+)
+pa = modelmap.plot_array(h, vmin=vmin, vmax=vmax)
+quadmesh = modelmap.plot_bc("CHD")
+linecollection = modelmap.plot_grid(lw=0.5, color="0.5")
+contours = modelmap.contour_array(
+    h,
+    levels=contour_intervals,
+    colors="black",
+)
+ax.clabel(contours, fmt="%2.1f")
+cb = plt.colorbar(pa, shrink=0.5, ax=ax)
+
+
+# In[20]:
+
+
+# ## Determine the Flow Residual
+#
+# The `FLOW-JA-FACE` cell-by-cell budget data can be processed to
+# determine the flow residual for each cell in a MODFLOW 6 model. The
+# diagonal position for each row in the `FLOW-JA-FACE` cell-by-cell
+# budget data contains the flow residual for each cell and can be
+# extracted using the `flopy.mf6.utils.get_residuals()` function.
+#
+# First extract the `FLOW-JA-FACE` array from the cell-by-cell budget file
+
+flowja = gwf.oc.output.budget().get_data(text="FLOW-JA-FACE", kstpkper=(0, 0))[
+    0
+]
+
+# Next extract the flow residual. The MODFLOW 6 binary grid file is passed
+# into the function because it contains the ia array that defines
+# the location of the diagonal position in the `FLOW-JA-FACE` array.
+
+grb_file = "/home/sensei/ce-4363-webroot/ModflowExperimental/mf6-arm/" + f"{name}.dis.grb"
+#grb_file = workspace + ".dis.grb"
+residual = flopy.mf6.utils.get_residuals(flowja, grb_file=grb_file)
+
+# ### Plot a Map of the flow error in Layer 10
+
+fig, ax = plt.subplots(1, 1, figsize=(6, 6), constrained_layout=True)
+ax.set_title("Model Layer 10")
+modelmap = flopy.plot.PlotMapView(model=gwf, ax=ax, layer=Nlay - 1)
+pa = modelmap.plot_array(residual)
+quadmesh = modelmap.plot_bc("CHD")
+linecollection = modelmap.plot_grid(lw=0.5, color="0.5")
+contours = modelmap.contour_array(
+    h,
+    levels=contour_intervals,
+    colors="black",
+)
+ax.clabel(contours, fmt="%2.1f")
+plt.colorbar(pa, shrink=0.5)
+
 
 # ## References
 # 
