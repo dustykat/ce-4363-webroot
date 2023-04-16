@@ -3,7 +3,7 @@
 
 # # Semester Project - in Python 
 # 
-# ** this section is under development, students should continue to use ModelMuse**, the python is not particularly intuitive.
+# **this section is under development, students should continue to use ModelMuse**, the python is not particularly intuitive.
 # 
 # Here is a python approach to access MODFLOW6 using Jupyter Notebook running an ipython kernel.
 # 
