@@ -100,7 +100,9 @@
 # 
 # [FloPy: Python Package for Creating, Running, and Post-Processing MODFLOW-Based Models ](https://www.usgs.gov/software/flopy-python-package-creating-running-and-post-processing-modflow-based-models)
 # 
+# The PDF link below shows the installation and an example run on the AWS server.
 # 
+# [MODFLOW on a Jupyter Server - notes](http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/groundwatermodels/installing.pdf)
 # 
 
 # ## References
