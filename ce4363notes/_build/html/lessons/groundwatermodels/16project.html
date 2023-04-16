@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Semester Project - in Python (under development, students should continue to use ModelMuse) &#8212; CE 4363/5363 Groundwater Hydrology</title>
+    <title>Semester Project - in Python &#8212; CE 4363/5363 Groundwater Hydrology</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -195,7 +195,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Semester Project - in Python (under development, students should continue to use ModelMuse)
+   Semester Project - in Python
   </a>
  </li>
  <li class="toctree-l1">
@@ -383,8 +383,9 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="semester-project-in-python-under-development-students-should-continue-to-use-modelmuse">
-<h1>Semester Project - in Python (under development, students should continue to use ModelMuse)<a class="headerlink" href="#semester-project-in-python-under-development-students-should-continue-to-use-modelmuse" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="semester-project-in-python">
+<h1>Semester Project - in Python<a class="headerlink" href="#semester-project-in-python" title="Permalink to this headline">¶</a></h1>
+<p>** this section is under development, students should continue to use ModelMuse**, the python is not particularly intuitive.</p>
 <p>Here is a python approach to access MODFLOW6 using Jupyter Notebook running an ipython kernel.</p>
 <p>There was an installation step for FloPy and manual compilation of MODFLOW6 to run on a Raspberry Pi (to make the notes)  Use the <code class="docutils literal notranslate"><span class="pre">!</span> <span class="pre">get-modflow</span></code> method in the notes for intel-based machines.</p>
 <div class="section" id="step-1">
@@ -558,18 +559,18 @@ Resources Software User Rights Notice for complete use, copyright,
 and distribution information.
 
 
- Run start date and time (yyyy/mm/dd hh:mm:ss): 2023/04/16 20:54:58
+ Run start date and time (yyyy/mm/dd hh:mm:ss): 2023/04/16 21:04:47
 
  Writing simulation list file: mfsim.lst
  Using Simulation name file: mfsim.nam
 
     Solving:  Stress period:     1    Time step:     1
 
- Run end date and time (yyyy/mm/dd hh:mm:ss): 2023/04/16 20:54:58
- Elapsed run time:  0.059 Seconds
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2023/04/16 21:04:47
+ Elapsed run time:  0.060 Seconds
 
  Normal termination of simulation.
-Current memory usage is 7712 bytes; peak was 59207 bytes
+Current memory usage is 7768 bytes; peak was 59207 bytes
 </pre></div>
 </div>
 </div>
@@ -801,18 +802,18 @@ Resources Software User Rights Notice for complete use, copyright,
 and distribution information.
 
 
- Run start date and time (yyyy/mm/dd hh:mm:ss): 2023/04/16 20:55:04
+ Run start date and time (yyyy/mm/dd hh:mm:ss): 2023/04/16 21:04:53
 
  Writing simulation list file: mfsim.lst
  Using Simulation name file: mfsim.nam
 
     Solving:  Stress period:     1    Time step:     1
 
- Run end date and time (yyyy/mm/dd hh:mm:ss): 2023/04/16 20:55:04
- Elapsed run time:  0.056 Seconds
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2023/04/16 21:04:53
+ Elapsed run time:  0.055 Seconds
 
  Normal termination of simulation.
-Current memory usage is 7547813 bytes; peak was 7600980 bytes
+Current memory usage is 7548048 bytes; peak was 7601215 bytes
 </pre></div>
 </div>
 </div>
@@ -885,6 +886,231 @@ Current memory usage is 7547813 bytes; peak was 7600980 bytes
 <p>Wellfield C at maximum target rate, notice in the slice, that there is flow from the river cells to the north, so this is too much pumpage as per the problem statement.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># Now attempt an example</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">flopy</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;project1-1_mf6&quot;</span>
+<span class="n">h1</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">hriv</span> <span class="o">=</span> <span class="o">-</span><span class="mi">25</span> <span class="c1">#river elevation reference to bottom</span>
+<span class="n">Nlay</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1">#number layers</span>
+<span class="n">Nrow</span> <span class="o">=</span> <span class="mi">24</span> <span class="c1">#number rows</span>
+<span class="n">Ncol</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#number columns</span>
+<span class="n">LR</span> <span class="o">=</span> <span class="n">Nrow</span><span class="o">*</span><span class="mf">1000.0</span> <span class="c1"># length in row direction</span>
+<span class="n">LC</span> <span class="o">=</span> <span class="n">Ncol</span><span class="o">*</span><span class="mf">1000.0</span> <span class="c1"># length in column direction</span>
+<span class="n">H</span> <span class="o">=</span> <span class="mf">175.0</span> <span class="c1"># aquifer thickness</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">20.0</span><span class="o">*</span><span class="mi">365</span> <span class="c1"># hydraulic condictivity</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">MFSimulation</span><span class="p">(</span>
+    <span class="n">sim_name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">exe_name</span><span class="o">=</span><span class="s2">&quot;/home/sensei/ce-4363-webroot/ModflowExperimental/mf6-arm/mf6&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;mf6&quot;</span><span class="p">,</span> <span class="n">sim_ws</span><span class="o">=</span><span class="s2">&quot;/home/sensei/ce-4363-webroot/ModflowExperimental/mf6-arm/project1-1&quot;</span>
+<span class="p">)</span>
+
+<span class="n">tdis</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowTdis</span><span class="p">(</span>
+    <span class="n">sim</span><span class="p">,</span> <span class="n">pname</span><span class="o">=</span><span class="s2">&quot;tdis&quot;</span><span class="p">,</span> <span class="n">time_units</span><span class="o">=</span><span class="s2">&quot;YEARS&quot;</span><span class="p">,</span> <span class="n">nper</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">perioddata</span><span class="o">=</span><span class="p">[(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)]</span>
+<span class="p">)</span>
+
+<span class="n">ims</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowIms</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">pname</span><span class="o">=</span><span class="s2">&quot;ims&quot;</span><span class="p">,</span> <span class="n">complexity</span><span class="o">=</span><span class="s2">&quot;SIMPLE&quot;</span><span class="p">)</span>
+
+<span class="n">model_nam_file</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.nam&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">gwf</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowGwf</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">modelname</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">model_nam_file</span><span class="o">=</span><span class="n">model_nam_file</span><span class="p">)</span>
+
+<span class="c1">#bot = np.linspace(-H / Nlay, -H, Nlay)</span>
+<span class="n">bot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="o">-</span><span class="mi">95</span><span class="p">,</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="o">-</span><span class="mi">150</span><span class="p">,</span><span class="o">-</span><span class="mi">175</span><span class="p">])</span>
+<span class="c1">#bot = np.array([125,80,75,25,0])</span>
+<span class="c1">#print(bot)</span>
+<span class="n">delrow</span> <span class="o">=</span> <span class="n">LR</span><span class="o">/</span><span class="n">Nrow</span>
+<span class="n">delcol</span> <span class="o">=</span> <span class="n">LC</span><span class="o">/</span><span class="n">Ncol</span>
+<span class="n">dis</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowGwfdis</span><span class="p">(</span>
+    <span class="n">gwf</span><span class="p">,</span>
+    <span class="n">nlay</span><span class="o">=</span><span class="n">Nlay</span><span class="p">,</span>
+    <span class="n">nrow</span><span class="o">=</span><span class="n">Nrow</span><span class="p">,</span>
+    <span class="n">ncol</span><span class="o">=</span><span class="n">Ncol</span><span class="p">,</span>
+    <span class="n">delr</span><span class="o">=</span><span class="n">delrow</span><span class="p">,</span>
+    <span class="n">delc</span><span class="o">=</span><span class="n">delcol</span><span class="p">,</span>
+    <span class="n">top</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">botm</span><span class="o">=</span><span class="n">bot</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1">#start heads</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">hriv</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">Nlay</span><span class="p">,</span> <span class="n">Nrow</span><span class="p">,</span> <span class="n">Ncol</span><span class="p">))</span>
+<span class="n">ic</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowGwfic</span><span class="p">(</span><span class="n">gwf</span><span class="p">,</span> <span class="n">pname</span><span class="o">=</span><span class="s2">&quot;ic&quot;</span><span class="p">,</span> <span class="n">strt</span><span class="o">=</span><span class="n">start</span><span class="p">)</span>
+
+<span class="n">npf</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowGwfnpf</span><span class="p">(</span><span class="n">gwf</span><span class="p">,</span> <span class="n">icelltype</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">save_flows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># create constant head boundaries</span>
+<span class="n">chd_rec</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">#chd_rec.append(((0, 19, 5), hriv))</span>
+<span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">Ncol</span><span class="p">):</span>
+        <span class="n">chd_rec</span><span class="o">.</span><span class="n">append</span><span class="p">(((</span><span class="n">layer</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">col</span><span class="p">),</span> <span class="n">hriv</span><span class="p">))</span>
+
+<span class="n">chd</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowGwfchd</span><span class="p">(</span>
+    <span class="n">gwf</span><span class="p">,</span>
+    <span class="n">maxbound</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">chd_rec</span><span class="p">),</span>
+    <span class="n">stress_period_data</span><span class="o">=</span><span class="n">chd_rec</span><span class="p">,</span>
+    <span class="n">save_flows</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># ### Create the well (`WEL`) Package</span>
+<span class="c1">#</span>
+<span class="c1"># Add a well in model layer 5.</span>
+
+<span class="n">wel_rec</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">wel_rec</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0e06</span><span class="p">))</span> <span class="c1">#wellfieldA-upper</span>
+<span class="n">wel_rec</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0e06</span><span class="p">))</span> <span class="c1">#wellfieldA-lower</span>
+<span class="n">wel_rec</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.0e06</span><span class="p">))</span> <span class="c1">#wellfieldB-upper</span>
+<span class="n">wel_rec</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.0e06</span><span class="p">))</span> <span class="c1">#wellfieldB-lower</span>
+<span class="n">wel_rec</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.5e06</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span> <span class="c1">#wellfieldC-upper</span>
+<span class="n">wel_rec</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.5e06</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span> <span class="c1">#wellfieldC-lower</span>
+<span class="c1">#wel_rec = [(4, 21, 5, -1000)]</span>
+<span class="n">wel</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowGwfwel</span><span class="p">(</span>
+    <span class="n">gwf</span><span class="p">,</span>
+    <span class="n">stress_period_data</span><span class="o">=</span><span class="n">wel_rec</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">iper</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ra</span> <span class="o">=</span> <span class="n">chd</span><span class="o">.</span><span class="n">stress_period_data</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">iper</span><span class="p">)</span>
+<span class="c1">#ra</span>
+
+<span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowGwfrcha</span><span class="p">(</span><span class="n">gwf</span><span class="p">,</span> <span class="n">recharge</span><span class="o">=</span><span class="mf">2.5e-1</span><span class="p">)</span>
+
+<span class="c1"># Create the output control (`OC`) Package</span>
+<span class="n">headfile</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.hds&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">head_filerecord</span> <span class="o">=</span> <span class="p">[</span><span class="n">headfile</span><span class="p">]</span>
+<span class="n">budgetfile</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.cbb&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">budget_filerecord</span> <span class="o">=</span> <span class="p">[</span><span class="n">budgetfile</span><span class="p">]</span>
+<span class="n">saverecord</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;HEAD&quot;</span><span class="p">,</span> <span class="s2">&quot;ALL&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;BUDGET&quot;</span><span class="p">,</span> <span class="s2">&quot;ALL&quot;</span><span class="p">)]</span>
+<span class="n">printrecord</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;HEAD&quot;</span><span class="p">,</span> <span class="s2">&quot;LAST&quot;</span><span class="p">)]</span>
+<span class="n">oc</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowGwfoc</span><span class="p">(</span>
+    <span class="n">gwf</span><span class="p">,</span>
+    <span class="n">saverecord</span><span class="o">=</span><span class="n">saverecord</span><span class="p">,</span>
+    <span class="n">head_filerecord</span><span class="o">=</span><span class="n">head_filerecord</span><span class="p">,</span>
+    <span class="n">budget_filerecord</span><span class="o">=</span><span class="n">budget_filerecord</span><span class="p">,</span>
+    <span class="n">printrecord</span><span class="o">=</span><span class="n">printrecord</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">sim</span><span class="o">.</span><span class="n">write_simulation</span><span class="p">()</span>
+
+
+
+<span class="kn">import</span> <span class="nn">tracemalloc</span>
+<span class="n">tracemalloc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> <span class="c1"># this is to suppress an asyncronous warning</span>
+
+<span class="c1"># attempt to run the model, will see if binary loaded OK</span>
+<span class="n">success</span><span class="p">,</span> <span class="n">buff</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">run_simulation</span><span class="p">()</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;MODFLOW 6 did not terminate normally.&quot;</span><span class="p">)</span>
+
+<span class="n">current</span><span class="p">,</span> <span class="n">peak</span> <span class="o">=</span> <span class="n">tracemalloc</span><span class="o">.</span><span class="n">get_traced_memory</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current memory usage is </span><span class="si">%d</span><span class="s2"> bytes; peak was </span><span class="si">%d</span><span class="s2"> bytes&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">peak</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>writing simulation...
+  writing simulation name file...
+  writing simulation tdis package...
+  writing ims package ims...
+  writing model project1-1_mf6...
+    writing model name file...
+    writing package dis...
+    writing package ic...
+    writing package npf...
+    writing package chd_0...
+    writing package wel_0...
+INFORMATION: maxbound in (&#39;gwf6&#39;, &#39;wel&#39;, &#39;dimensions&#39;) changed to 6 based on size of stress_period_data
+    writing package rcha_0...
+    writing package oc...
+FloPy is using the following executable to run the model: /home/sensei/ce-4363-webroot/ModflowExperimental/mf6-arm/mf6
+                                   MODFLOW 6
+                U.S. GEOLOGICAL SURVEY MODULAR HYDROLOGIC MODEL
+                        VERSION 6.4.1 Release 12/09/2022
+
+         MODFLOW 6 compiled Apr 16 2023 18:27:14 with GCC version 9.4.0
+
+This software has been approved for release by the U.S. Geological 
+Survey (USGS). Although the software has been subjected to rigorous 
+review, the USGS reserves the right to update the software as needed 
+pursuant to further analysis and review. No warranty, expressed or 
+implied, is made by the USGS or the U.S. Government as to the 
+functionality of the software and related material nor shall the 
+fact of release constitute any such warranty. Furthermore, the 
+software is released on condition that neither the USGS nor the U.S. 
+Government shall be held liable for any damages resulting from its 
+authorized or unauthorized use. Also refer to the USGS Water 
+Resources Software User Rights Notice for complete use, copyright, 
+and distribution information.
+
+
+ Run start date and time (yyyy/mm/dd hh:mm:ss): 2023/04/16 21:05:00
+
+ Writing simulation list file: mfsim.lst
+ Using Simulation name file: mfsim.nam
+
+    Solving:  Stress period:     1    Time step:     1
+
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2023/04/16 21:05:00
+ Elapsed run time:  0.060 Seconds
+
+ Normal termination of simulation.
+Current memory usage is 15988158 bytes; peak was 16041901 bytes
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now attempt to postprocess</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">gwf</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">kstpkper</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">LC</span><span class="p">,</span> <span class="n">Ncol</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">LR</span><span class="p">,</span> <span class="n">Nrow</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="o">-</span><span class="mf">175.0</span><span class="p">,</span> <span class="mf">0.0</span>
+<span class="n">contour_intervals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">175</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># ### Plot a Map of Layer 1</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">contour_intervals</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%2.1f</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1">#print(contour_intervals)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;a list of 24 text.Text objects&gt;
+</pre></div>
+</div>
+<img alt="../../_images/16project_12_1.png" src="../../_images/16project_12_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ### Plot a Map of Layer 5</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">h</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">contour_intervals</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%2.1f</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;a list of 24 text.Text objects&gt;
+</pre></div>
+</div>
+<img alt="../../_images/16project_13_1.png" src="../../_images/16project_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now try a slice</span>
 <span class="c1"># ### Plot a Cross-section along column 6</span>
 
@@ -897,10 +1123,10 @@ Current memory usage is 7547813 bytes; peak was 7600980 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;a list of 17 text.Text objects&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;a list of 25 text.Text objects&gt;
 </pre></div>
 </div>
-<img alt="../../_images/16project_11_1.png" src="../../_images/16project_11_1.png" />
+<img alt="../../_images/16project_14_1.png" src="../../_images/16project_14_1.png" />
 </div>
 </div>
 </div>
