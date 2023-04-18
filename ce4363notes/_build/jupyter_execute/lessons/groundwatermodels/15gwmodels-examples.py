@@ -17,9 +17,23 @@
 
 # ### Obleo Aquifer Example
 # 
-# This example extends the above example as a steady-state model of the Obleo aquifer system described in [MODFLOW Notes (Cleveland circa 1992)](http://54.243.252.9/ce-4363-webroot/3-Readings/modflowNotes01.pdf).
+# This is a steady-state model of the Obleo aquifer system depicted below:
 # 
-# The major changes are to modify the boundary conditions, make simulation unconfoned, and include recharge.  
+# ![](obleoaquifer.png)
+# 
+# Sone added information about the system is:
+# 
+# ![](obleoparticulars.png)
+# 
+# The general goals for the analysis are:
+# 
+# ![](obleogoals.png)
+# 
+# So with a little infomration regarding how we will manage elevations we can move forward with the modeling effort.
+# 
+# ![](obleovertdatum.png)
+# 
+# Now onto **modflow**
 
 # In[1]:
 
@@ -159,7 +173,7 @@ chd = flopy.mf6.ModflowGwfchd(gwf,maxbound=len(chd_rec),stress_period_data=chd_r
 # Define wellfields
 wel_rec = []
 # wel_rec.append((0, 5, 5, -0e6)) # 0 Mm3/yr - use to examine recharge only
-wel_rec.append((0, 5, 5, -1000e6)) # 1,000 Mm3/yr
+wel_rec.append((0, 5, 5, -2114e6)) # 2,114 Mm3/yr
 
 ##### FLOPY Build Wellfields framework #####  
 wel = flopy.mf6.ModflowGwfwel(gwf,maxbound=len(wel_rec),stress_period_data=wel_rec,
@@ -271,6 +285,20 @@ ax.clabel(contours, fmt="%2.1f")
 cb = plt.colorbar(pa, shrink=0.5, ax=ax)
 cb.set_label(' Head (meters) ', rotation=90)
 
+
+# So this seems like a working model next we need to see if the heads are no less than -650 meters (the minimum allowed saturated thickness).  We already have this information contained in the output object.
+
+# In[18]:
+
+
+print("Minimum allowed is -650.0 meters")
+print("Pumping at P-1 is:",wel_rec[0][3]/1e6," Mm^3/yr")
+print("Minimum Head is:",round(h[0].min(),1)," meters")
+if h[0].min() < -650.0:
+    print("Computed head is below allowed value - reduce pumpage and rerun simulation")
+
+
+# Increase of pumpage beyond this value is not possible without causing fail;ed simulation - so its at least a workable value.  
 
 # ## References
 # 

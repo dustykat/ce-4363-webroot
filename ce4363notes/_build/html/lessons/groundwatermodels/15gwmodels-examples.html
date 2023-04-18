@@ -394,8 +394,15 @@
 <p>The remainder of this section is worked examples using <code class="docutils literal notranslate"><span class="pre">FLOPY</span></code> and <code class="docutils literal notranslate"><span class="pre">MODFLOW6</span></code> installed on a <code class="docutils literal notranslate"><span class="pre">aarch-64</span></code> computer.  <code class="docutils literal notranslate"><span class="pre">x86-...</span></code> architectures should use the <code class="docutils literal notranslate"><span class="pre">!</span> <span class="pre">get-modflow</span></code> method to download (in near real time) current binaries</p>
 <div class="section" id="obleo-aquifer-example">
 <h3>Obleo Aquifer Example<a class="headerlink" href="#obleo-aquifer-example" title="Permalink to this headline">¶</a></h3>
-<p>This example extends the above example as a steady-state model of the Obleo aquifer system described in <a class="reference external" href="http://54.243.252.9/ce-4363-webroot/3-Readings/modflowNotes01.pdf">MODFLOW Notes (Cleveland circa 1992)</a>.</p>
-<p>The major changes are to modify the boundary conditions, make simulation unconfoned, and include recharge.</p>
+<p>This is a steady-state model of the Obleo aquifer system depicted below:</p>
+<p><img alt="" src="../../_images/obleoaquifer.png" /></p>
+<p>Sone added information about the system is:</p>
+<p><img alt="" src="../../_images/obleoparticulars.png" /></p>
+<p>The general goals for the analysis are:</p>
+<p><img alt="" src="../../_images/obleogoals.png" /></p>
+<p>So with a little infomration regarding how we will manage elevations we can move forward with the modeling effort.</p>
+<p><img alt="" src="../../_images/obleovertdatum.png" /></p>
+<p>Now onto <strong>modflow</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
@@ -589,7 +596,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define wellfields</span>
 <span class="n">wel_rec</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1"># wel_rec.append((0, 5, 5, -0e6)) # 0 Mm3/yr - use to examine recharge only</span>
-<span class="n">wel_rec</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1000e6</span><span class="p">))</span> <span class="c1"># 1,000 Mm3/yr</span>
+<span class="n">wel_rec</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">2114e6</span><span class="p">))</span> <span class="c1"># 2,114 Mm3/yr</span>
 
 <span class="c1">##### FLOPY Build Wellfields framework #####  </span>
 <span class="n">wel</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">mf6</span><span class="o">.</span><span class="n">ModflowGwfwel</span><span class="p">(</span><span class="n">gwf</span><span class="p">,</span><span class="n">maxbound</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">wel_rec</span><span class="p">),</span><span class="n">stress_period_data</span><span class="o">=</span><span class="n">wel_rec</span><span class="p">,</span>
@@ -730,15 +737,15 @@ Resources Software User Rights Notice for complete use, copyright,
 and distribution information.
 
 
- Run start date and time (yyyy/mm/dd hh:mm:ss): 2023/04/18 20:00:06
+ Run start date and time (yyyy/mm/dd hh:mm:ss): 2023/04/18 20:33:26
 
  Writing simulation list file: mfsim.lst
  Using Simulation name file: mfsim.nam
 
     Solving:  Stress period:     1    Time step:     1
 
- Run end date and time (yyyy/mm/dd hh:mm:ss): 2023/04/18 20:00:06
- Elapsed run time:  0.029 Seconds
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2023/04/18 20:33:26
+ Elapsed run time:  0.032 Seconds
 
  Normal termination of simulation.
 </pre></div>
@@ -809,6 +816,30 @@ and distribution information.
 <img alt="../../_images/15gwmodels-examples_19_1.png" src="../../_images/15gwmodels-examples_19_1.png" />
 </div>
 </div>
+<p>So this seems like a working model next we need to see if the heads are no less than -650 meters (the minimum allowed saturated thickness).  We already have this information contained in the output object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minimum allowed is -650.0 meters&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pumping at P-1 is:&quot;</span><span class="p">,</span><span class="n">wel_rec</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="mf">1e6</span><span class="p">,</span><span class="s2">&quot; Mm^3/yr&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minimum Head is:&quot;</span><span class="p">,</span><span class="nb">round</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="mi">1</span><span class="p">),</span><span class="s2">&quot; meters&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">h</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">650.0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computed head is below allowed value - reduce pumpage and rerun simulation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Minimum allowed is -650.0 meters
+Pumping at P-1 is: -2114.0  Mm^3/yr
+Minimum Head is: -563.4  meters
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/jupyterhub/lib/python3.8/site-packages/ipykernel/ipkernel.py:287: DeprecationWarning: `should_run_async` will not call `transform_cell` automatically in the future. Please pass the result to `transformed_cell` argument and any exception that happen during thetransform in `preprocessing_exc_tuple` in IPython 7.17 and above.
+  and should_run_async(code)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Increase of pumpage beyond this value is not possible without causing fail;ed simulation - so its at least a workable value.</p>
 </div>
 </div>
 <div class="section" id="references">
