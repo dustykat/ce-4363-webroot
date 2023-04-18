@@ -175,6 +175,19 @@ c = ax.contour(x, y, h[4], contour_intervals, colors="black")
 plt.clabel(c, fmt="%2.1f")
 
 
+# In[4]:
+
+
+# now try a slice
+# ### Plot a Cross-section along column 6
+
+z = np.linspace(-175, 0 , Nlay)
+fig = plt.figure(figsize=(9, 3))
+ax = fig.add_subplot(1, 1, 1, aspect="auto")
+c = ax.contour(y, z, h[:, :,5], contour_intervals, colors="black")
+plt.clabel(c, fmt="%1.1f")
+
+
 # ## Step 2 (and beyond)
 # 
 # Ok seems to be a running model, 5 layers, with a constant head boundary and recharge.
@@ -183,7 +196,7 @@ plt.clabel(c, fmt="%2.1f")
 # 
 # Next case is with wellfield C at the lower bound of pumpage rate.  Flow is towards river cells - so feasible as per problem statement.
 
-# In[4]:
+# In[5]:
 
 
 import warnings
@@ -311,7 +324,7 @@ current, peak = tracemalloc.get_traced_memory()
 print("Current memory usage is %d bytes; peak was %d bytes" % (current, peak))
 
 
-# In[5]:
+# In[6]:
 
 
 # now attempt to postprocess
@@ -331,7 +344,7 @@ plt.clabel(c, fmt="%2.1f")
 #print(contour_intervals)
 
 
-# In[6]:
+# In[7]:
 
 
 # ### Plot a Map of Layer 5
@@ -342,7 +355,7 @@ c = ax.contour(x, y, h[4], contour_intervals, colors="black")
 plt.clabel(c, fmt="%2.1f")
 
 
-# In[7]:
+# In[8]:
 
 
 # now try a slice
@@ -357,7 +370,7 @@ plt.clabel(c, fmt="%1.1f")
 
 # Wellfield C at maximum target rate, notice in the slice, that there is flow from the river cells to the north, so this is too much pumpage as per the problem statement.
 
-# In[8]:
+# In[9]:
 
 
 import warnings
@@ -485,7 +498,7 @@ current, peak = tracemalloc.get_traced_memory()
 print("Current memory usage is %d bytes; peak was %d bytes" % (current, peak))
 
 
-# In[9]:
+# In[10]:
 
 
 # now attempt to postprocess
@@ -505,7 +518,7 @@ plt.clabel(c, fmt="%2.1f")
 #print(contour_intervals)
 
 
-# In[10]:
+# In[11]:
 
 
 # ### Plot a Map of Layer 5
@@ -516,7 +529,7 @@ c = ax.contour(x, y, h[4], contour_intervals, colors="black")
 plt.clabel(c, fmt="%2.1f")
 
 
-# In[11]:
+# In[12]:
 
 
 # now try a slice
