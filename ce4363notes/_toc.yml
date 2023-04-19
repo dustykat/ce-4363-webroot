@@ -24,9 +24,13 @@ chapters:
   - file: lessons/groundwatermodels/14gwmodels
   - file: lessons/groundwatermodels/15gwmodels
   - file: lessons/groundwatermodels/15gwmodels-examples
+  - file: lessons/groundwatermodels/15gwmodels-examples-2
+  - file: lessons/groundwatermodels/16gwmodels-examples-3
   - file: lessons/groundwatermodels/16gwmodels
 - file: lessons/16recharge
 - file: lessons/groundwatermodels/16project
+#  sections:
+#  - file: lessons/groundwatermodels/16gwmodels-examples-3
 - file: lessons/17fieldmethods
 - file: lessons/18waterwellconstruction
 - file: lessons/19waterwellconstruction
