@@ -54,6 +54,8 @@ def wh(u, rho): # Hantush Leaky aquifer well function
     wh = numpy.sum(numpy.exp(-ym - (rho / 2)**2 / ym ) * dy / ym)
     return wh
 
+wh(0.625,5)
+
 
 # Example on pg. 165 to illustrate homebrew script
 # 

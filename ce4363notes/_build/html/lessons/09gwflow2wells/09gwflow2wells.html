@@ -182,8 +182,23 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../groundwatermodels/15gwmodels-examples.html">
+     MODFLOW Python Interface Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../groundwatermodels/15gwmodels-examples-2.html">
+     MODFLOW Python Interface Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../groundwatermodels/16gwmodels-examples-3.html">
+     MODFLOW Python Interface Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../groundwatermodels/16gwmodels.html">
-     Regional Flow Models
+     Regional Flow (pp. 244)
     </a>
    </li>
   </ul>
@@ -191,6 +206,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../16recharge.html">
    Recharge
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../groundwatermodels/16project.html">
+   Semester Project - in Python
   </a>
  </li>
  <li class="toctree-l1">
@@ -210,7 +230,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../20gwchemistry.html">
-   Groundwater Chemistry - I
+   Groundwater Chemistry (pp. 351-392)
   </a>
  </li>
  <li class="toctree-l1">
@@ -454,6 +474,13 @@
     <span class="n">dy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
     <span class="n">wh</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ym</span> <span class="o">-</span> <span class="p">(</span><span class="n">rho</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">ym</span> <span class="p">)</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">/</span> <span class="n">ym</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">wh</span>
+
+<span class="n">wh</span><span class="p">(</span><span class="mf">0.625</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.007379841673127564
 </pre></div>
 </div>
 </div>
@@ -604,7 +631,7 @@
         
           By Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI<br/>
         
-            &copy; Copyright 2021.<br/>
+            &copy; Copyright 2023.<br/>
       </p>
     </div>
   </footer>

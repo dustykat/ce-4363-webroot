@@ -3,6 +3,7 @@
 
 title: CE 4363/5363 Groundwater Hydrology
 author: Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI
+copyright: "2023"  # Copyright year to be placed in the footer
 logo: logo2.png
 
 # Force re-execution of notebooks on each build.
