@@ -157,6 +157,10 @@ plt.close('all') # needed when plt.show call not invoked, optional here
 # 
 # [Capture Zone Type-Curves](http://54.243.252.9/ce-4363-webroot/3-Readings/Capture.PDF)
 
+# ## Resources
+# 
+# 1. [Excel Spreadsheet for Ogata Banks model (xlsx - you will need to install the Analysis Add-In)](http://54.243.252.9/ce-4363-webroot/ce4363notes/lessons/1DCRAD.xlsx)
+
 # In[ ]:
 
 
