@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: CE 4363/5363 Groundwater Hydrology
+title: Groundwater Hydrology
 author: Theodore G. Cleveland, Ph.D., P.E., M.ASCE, F.EWRI
 copyright: "2023"  # Copyright year to be placed in the footer
 logo: logo2.png
@@ -9,7 +9,9 @@ logo: logo2.png
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+#  execute_notebooks: force
+  execute_notebooks: cache
+  timeout: -1
 
 # Define the name of the latex output file for PDF builds
 latex:

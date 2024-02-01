@@ -885,7 +885,7 @@ print("End Simulation")
 # The numerical values in these examples are entirely invented, 20,000 cubic meters per day is about 3600 gallons per minute, not an unreasonable value but absurd for a mere 5 meters of saturated thickness.  Professional tools like `MODFLOW` do internal error checks to reduce the ability to process absurd values.
 # :::
 
-# In[ ]:
+# In[4]:
 
 
 get_ipython().run_line_magic('reset', '-f')
