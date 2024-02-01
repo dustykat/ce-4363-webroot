@@ -1,4 +1,4 @@
-# Welcome to CE 4363/5363 Groundwater Hydrology
+# Preface
 
 These are the instructor course notes (from which lecture and discussion items are derived).
 
